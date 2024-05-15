@@ -7,9 +7,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class UserDTO {
+public class CharacterSheetDTO {
     private Long id;
-    private String name;
-    private String email;
-    private String password;
+    private String characterName;
+    private int pd;
+    private int px;
+    private String notas;
 }

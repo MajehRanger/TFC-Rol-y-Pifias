@@ -1,11 +1,11 @@
 package com.proyecto.mapper;
 
-import com.proyecto.dto.UserDTO;
-import com.proyecto.model.User;
+import com.proyecto.dto.PlayerDTO;
+import com.proyecto.model.Player;
 
-public class UserMapper {
-    public static UserDTO mapToUserDTO(User user){
-        return new UserDTO(
+public class PlayerMapper {
+    public static PlayerDTO mapToUserDTO(Player user){
+        return new PlayerDTO(
             user.getId(),
             user.getName(),
             user.getEmail(),
@@ -13,8 +13,8 @@ public class UserMapper {
         );
     }
 
-    public static User mapToUser(UserDTO userDTO){
-        return new User(
+    public static Player mapToUser(PlayerDTO userDTO){
+        return new Player(
             userDTO.getId(),
             userDTO.getName(),
             userDTO.getEmail(),
