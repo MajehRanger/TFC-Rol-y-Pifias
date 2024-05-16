@@ -10,7 +10,7 @@ public class CharacterSheetMapper {
             sheet.getCharacterName(),
             sheet.getPd(),
             sheet.getPx(),
-            sheet.getNotas()
+            sheet.getNotes()
         );
     }
 public static CharacterSheet mapToSheet(CharacterSheetDTO sheetDTO) {
@@ -19,7 +19,7 @@ public static CharacterSheet mapToSheet(CharacterSheetDTO sheetDTO) {
             sheetDTO.getCharacterName(),
             sheetDTO.getPd(),
             sheetDTO.getPx(),
-            sheetDTO.getNotas()
+            sheetDTO.getNotes()
         );
     }
 }

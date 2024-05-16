@@ -51,7 +51,7 @@ public class CharacterSheetServiceImpl implements CharacterSheetService{
         characterSheet.setCharacterName(updatedSheet.getCharacterName());
         characterSheet.setPd(updatedSheet.getPd());
         characterSheet.setPx(updatedSheet.getPx());
-        characterSheet.setNotas(updatedSheet.getNotas());
+        characterSheet.setNotes(updatedSheet.getNotes());
 
         CharacterSheet characterSheetUpdatedObj = characterSheetRepository.save(characterSheet);
 

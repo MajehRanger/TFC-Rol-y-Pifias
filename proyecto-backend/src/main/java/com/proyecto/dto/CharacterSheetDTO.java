@@ -12,5 +12,5 @@ public class CharacterSheetDTO {
     private String characterName;
     private int pd;
     private int px;
-    private String notas;
+    private String notes;
 }

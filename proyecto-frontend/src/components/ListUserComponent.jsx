@@ -26,11 +26,14 @@ function ListUserComponent() {
     <div className='container m-5'>
         <h2>Lista de usuarios</h2>
         <table className='table table-bordered'>
+            <thead>
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
                 <th>Correo</th>
             </tr>
+            </thead>
+            <tbody>
             {data.map(user =>
                 <tr key={user.id}>
                     <td>{user.id}</td>
@@ -38,7 +41,7 @@ function ListUserComponent() {
                     <td>{user.email}</td>
                 </tr>
             )}
-            
+            </tbody>
         </table>
     </div>
   )

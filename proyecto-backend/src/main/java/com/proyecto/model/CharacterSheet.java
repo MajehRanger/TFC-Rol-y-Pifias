@@ -26,6 +26,6 @@ public class CharacterSheet {
     @Column(name = "experience_points")
     private int px;
     @Column(name = "character_notes")
-    private String notas;
+    private String notes;
     
 }
