@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react'
-import { listSheets } from '../services/CharacterSheetService'
+//import { listSheets } from '../services/CharacterSheetService'
+import ListEstilosComponent from './ListEstilosComponent'
+import ListAspectosComponent from './ListAspectosComponent'
 
 function ListSheetComponent() {
 /*
@@ -29,52 +31,36 @@ function ListSheetComponent() {
     const data = [
         {
             "id": 1,
-            "name": "Pepe",
-            "email": "pepe@correo.com",
-            "password": "abc123."
-        },
-        {
-            "id": 2,
-            "name": "Paloma",
-            "email": "paloma@correo.com",
-            "password": "abc123."
-        },
-        {
-            "id": 3,
-            "name": "Sergio",
-            "email": "sergio@correo.com",
-            "password": "abc123."
+            "characterName": "Pepe el Druida",
+            "pd": 12,
+            "px": 4,
+            "notes": "Es un druida y le gusta ser un oso."
         }
     ];
     
   return (
-    <div className='container m-5'>
-        <h2>Lista de fichas</h2>
-        <table className='table table-bordered'>
-            <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Puntos Destino</th>
-                <th>Puntos Experiencia</th>
-                <th>Notas</th>
-            </tr>
-            </thead>
-            <tbody>
+    <>
+    <div className='container sheetBox m-3'>
+    <h2>Datos de personaje</h2>
             {
-            sheets.map(sheet =>
-                <tr key={sheet.id}>
-                    <td>{sheet.id}</td>
-                    <td>{sheet.characterName}</td>
-                    <td>{sheet.pd}</td>
-                    <td>{sheet.px}</td>
-                    <td>{sheet.notes}</td>
-                </tr>
+            data.map(sheet =>
+                <div key={sheet.id}>
+                    <div>Nombre: {sheet.characterName}</div>
+                    <div>Puntos Destino: {sheet.pd}</div>
+                    <div>Puntos Experiencia: {sheet.px}</div>
+                    <div>Notas: {sheet.notes}</div>
+                </div>
             )}
-            </tbody>
-            
-        </table>
     </div>
+    <div className='container m-3'>
+    <h2>Imagen del personaje</h2>
+    <img className="m-3" src="https://i.pinimg.com/236x/99/34/c0/9934c067155a39a076963df5c7cc8259.jpg" alt="" />
+    </div>
+    
+    <ListEstilosComponent />
+    <ListAspectosComponent />
+    
+    </>
   )
 }
 export default ListSheetComponent

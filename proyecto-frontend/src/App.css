@@ -1,0 +1,64 @@
+*{
+    width: 100%;
+}
+.ficha{
+    background-color: bisque;
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-radius: 5px;
+}
+
+.sheetBox div{
+    background-color: aliceblue;
+}
+img{
+    width: 80px;
+    justify-self: center;
+    border-radius: 5px;
+}
+.estiloBox{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    margin-bottom: 2px;
+    width: 80%;
+    background-color: aliceblue;
+    border-radius: 5px;
+}
+.estiloName{
+    width: max-content;
+}
+.estiloPoints{
+    background-color: aliceblue;
+    color: black;
+    width: 30px;
+    text-align: center;
+
+}
+.aspectos{
+justify-content: center;
+
+}
+.aspectoBox{
+    width: 80%;
+    border: 1px solid black;
+    background-color: aliceblue;
+    margin-bottom: 5px;
+    align-content: center;
+    border-radius: 5px;
+    
+}
+.conceptoText, .problemaText{
+    width: 95%;
+    border: 1px solid black;
+    background-color: aliceblue;
+    margin: auto;
+    margin-bottom: 5px;
+    min-height: 100px;
+    border-radius: 5px;
+}
