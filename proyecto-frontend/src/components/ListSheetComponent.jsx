@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { listSheets } from '../services/CharacterSheetService'
 
 function ListSheetComponent() {
-
+/*
    const [sheets, setSheets] = useState([])
 
    useEffect(() => {
@@ -24,6 +24,29 @@ function ListSheetComponent() {
     fetchData();
     },[])
     console.log(typeof sheets);
+    */
+
+    const data = [
+        {
+            "id": 1,
+            "name": "Pepe",
+            "email": "pepe@correo.com",
+            "password": "abc123."
+        },
+        {
+            "id": 2,
+            "name": "Paloma",
+            "email": "paloma@correo.com",
+            "password": "abc123."
+        },
+        {
+            "id": 3,
+            "name": "Sergio",
+            "email": "sergio@correo.com",
+            "password": "abc123."
+        }
+    ];
+    
   return (
     <div className='container m-5'>
         <h2>Lista de fichas</h2>
