@@ -44,7 +44,7 @@ function ListSheetComponent() {
     <h2>Datos de personaje</h2>
             {
             data.map(sheet =>
-                <div key={sheet.id}>
+                <div className="p-2" key={sheet.id}>
                     <div>Nombre: {sheet.characterName}</div>
                     <div>Puntos Destino: {sheet.pd}</div>
                     <div>Puntos Experiencia: {sheet.px}</div>
@@ -54,7 +54,7 @@ function ListSheetComponent() {
     </div>
     <div className='container m-3'>
     <h2>Imagen del personaje</h2>
-    <img className="m-3" src="https://i.pinimg.com/236x/99/34/c0/9934c067155a39a076963df5c7cc8259.jpg" alt="" />
+    <img className="ms-2" src="https://cdn-icons-png.flaticon.com/512/4270/4270729.png" alt="" />
     </div>
     
     <ListEstilosComponent />

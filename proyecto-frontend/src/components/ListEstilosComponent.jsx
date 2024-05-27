@@ -44,7 +44,7 @@ function ListEstilosComponent() {
             data.map(estilo =>
                 <div key={estilo.id}>
                     <div className='estiloBox'>
-                        <div className='estiloName'>Adivinación:</div>
+                        <div className='estiloName'>➧Adivinación:</div>
                         <input className='estiloPoints' type="text" readonly value={estilo.adivinación}/>
                     </div>
                     <div className='estiloBox'>
@@ -56,7 +56,7 @@ function ListEstilosComponent() {
                         <input className='estiloPoints' type="text" readonly value={estilo.armas}/>
                     </div>
                     <div className='estiloBox'>
-                        <div className='estiloName'>Artes Oscuras:</div>
+                        <div className='estiloName'>➧Artes Oscuras:</div>
                         <input className='estiloPoints' type="text" readonly value={estilo.artesOscuras}/>
                     </div>
                     <div className='estiloBox'>
@@ -64,7 +64,7 @@ function ListEstilosComponent() {
                         <input className='estiloPoints' type="text" readonly value={estilo.carisma}/>
                     </div>
                     <div className='estiloBox'>
-                        <div className='estiloName'>Criaturas Mágicas:</div>
+                        <div className='estiloName'>➧Criaturas Mágicas:</div>
                         <input className='estiloPoints' type="text" readonly value={estilo.criaturasMagicas}/>
                     </div>
                     <div className='estiloBox'>
@@ -88,11 +88,11 @@ function ListEstilosComponent() {
                         <input className='estiloPoints' type="text" readonly value={estilo.empatia}/>
                     </div>
                     <div className='estiloBox'>
-                        <div className='estiloName'>* Hechizos:</div>
+                        <div className='estiloName'>➧Hechizos:</div>
                         <input className='estiloPoints' type="text" readonly value={estilo.hechizos}/>
                     </div>
                     <div className='estiloBox'>
-                        <div className='estiloName'>* Herbología:</div>
+                        <div className='estiloName'>➧Herbología:</div>
                         <input className='estiloPoints' type="text" readonly value={estilo.adivinación}/>
                     </div>
                     <div className='estiloBox'>
@@ -116,7 +116,7 @@ function ListEstilosComponent() {
                         <input className='estiloPoints' type="text" readonly value={estilo.pilotar}/>
                     </div>
                     <div className='estiloBox'>
-                        <div className='estiloName'>* Pociones:</div>
+                        <div className='estiloName'>➧Pociones:</div>
                         <input className='estiloPoints' type="text" readonly value={estilo.pociones}/>
                     </div>
                     <div className='estiloBox'>
@@ -136,11 +136,11 @@ function ListEstilosComponent() {
                         <input className='estiloPoints' type="text" readonly value={estilo.empatia}/>
                     </div>
                     <div className='estiloBox'>
-                        <div className='estiloName'>* Teoria Mágica:</div>
+                        <div className='estiloName'>➧Teoria Mágica:</div>
                         <input className='estiloPoints' type="text" readonly value={estilo.hechizos}/>
                     </div>
                     <div className='estiloBox'>
-                        <div className='estiloName'>* Transfiguración:</div>
+                        <div className='estiloName'>➧Transfiguración:</div>
                         <input className='estiloPoints' type="text" readonly value={estilo.hechizos}/>
                     </div>
                     <div className='estiloBox'>

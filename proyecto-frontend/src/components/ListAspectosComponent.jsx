@@ -6,9 +6,9 @@ function ListAspectosComponent() {
     const data = [
         {
             "id": 1,
-            "concepto": "Druida aventajado",
-            "problema1": "No habla como un oso",
-            "problema2": "Aprovecha cualquier excusa para transformarse",
+            "concepto": "Druida aventajado.",
+            "problema1": "No puede comunicarse en forma de oso.",
+            "problema2": "Aprovecha cualquier excusa para transformarse.",
         }
     ];
     
@@ -19,14 +19,14 @@ function ListAspectosComponent() {
             {
             data.map(aspecto =>
                 <div key={aspecto.id}>
-                    <div className='aspectoBox'>
-                        <h3>Concepto</h3>
-                        <div className='conceptoText'>{aspecto.concepto}</div>
+                    <div className='aspectoBox p-2'>
+                        <h4>Concepto</h4>
+                        <div className='conceptoText p-1'>{aspecto.concepto}</div>
                     </div>
-                    <div className='aspectoBox'>
-                        <h3>Problema</h3>
-                        <div className='problemaText'>{aspecto.problema1}</div>
-                        <div className='problemaText'>{aspecto.problema2}</div>
+                    <div className='aspectoBox  p-2'>
+                        <h4>Problema</h4>
+                        <div className='problemaText  p-1'>{aspecto.problema1}</div>
+                        <div className='problemaText  p-1'>{aspecto.problema2}</div>
                     </div>
                 </div>
             )}

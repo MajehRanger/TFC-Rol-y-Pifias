@@ -16,7 +16,8 @@
     background-color: aliceblue;
 }
 img{
-    width: 80px;
+    min-width: 80px;
+    width: 22%;
     justify-self: center;
     border-radius: 5px;
 }
@@ -29,6 +30,7 @@ img{
     width: 80%;
     background-color: aliceblue;
     border-radius: 5px;
+    padding: 2px;
 }
 .estiloName{
     width: max-content;
