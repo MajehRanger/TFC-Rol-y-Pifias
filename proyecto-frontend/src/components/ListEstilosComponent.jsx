@@ -45,107 +45,107 @@ function ListEstilosComponent() {
                 <div key={estilo.id}>
                     <div className='estiloBox'>
                         <div className='estiloName'>➧Adivinación:</div>
-                        <input className='estiloPoints' type="text" readonly value={estilo.adivinación}/>
+                        <input className='estiloPoints' type="text" readOnly value={estilo.adivinación}/>
                     </div>
                     <div className='estiloBox'>
                         <div className='estiloName'>Alerta:</div>
-                        <input className='estiloPoints' type="text" readonly value={estilo.alerta}/>
+                        <input className='estiloPoints' type="text" readOnly value={estilo.alerta}/>
                     </div>
                     <div className='estiloBox'>
                         <div className='estiloName'>Armas:</div>
-                        <input className='estiloPoints' type="text" readonly value={estilo.armas}/>
+                        <input className='estiloPoints' type="text" readOnly value={estilo.armas}/>
                     </div>
                     <div className='estiloBox'>
                         <div className='estiloName'>➧Artes Oscuras:</div>
-                        <input className='estiloPoints' type="text" readonly value={estilo.artesOscuras}/>
+                        <input className='estiloPoints' type="text" readOnly value={estilo.artesOscuras}/>
                     </div>
                     <div className='estiloBox'>
                         <div className='estiloName'>Carisma:</div>
-                        <input className='estiloPoints' type="text" readonly value={estilo.carisma}/>
+                        <input className='estiloPoints' type="text" readOnly value={estilo.carisma}/>
                     </div>
                     <div className='estiloBox'>
                         <div className='estiloName'>➧Criaturas Mágicas:</div>
-                        <input className='estiloPoints' type="text" readonly value={estilo.criaturasMagicas}/>
+                        <input className='estiloPoints' type="text" readOnly value={estilo.criaturasMagicas}/>
                     </div>
                     <div className='estiloBox'>
                         <div className='estiloName'>Ciencias:</div>
-                        <input className='estiloPoints' type="text" readonly value={estilo.ciencias}/>
+                        <input className='estiloPoints' type="text" readOnly value={estilo.ciencias}/>
                     </div>
                     <div className='estiloBox'>
                         <div className='estiloName'>Conocimeintos Muggle:</div>
-                        <input className='estiloPoints' type="text" readonly value={estilo.conocimientosMuggle}/>
+                        <input className='estiloPoints' type="text" readOnly value={estilo.conocimientosMuggle}/>
                     </div>
                     <div className='estiloBox'>
                         <div className='estiloName'>Contactos:</div>
-                        <input className='estiloPoints' type="text" readonly value={estilo.contactos}/>
+                        <input className='estiloPoints' type="text" readOnly value={estilo.contactos}/>
                     </div>
                     <div className='estiloBox'>
                         <div className='estiloName'>Deportes Mágicos:</div>
-                        <input className='estiloPoints' type="text" readonly value={estilo.deportesMagicos}/>
+                        <input className='estiloPoints' type="text" readOnly value={estilo.deportesMagicos}/>
                     </div>
                     <div className='estiloBox'>
                         <div className='estiloName'>Empatía:</div>
-                        <input className='estiloPoints' type="text" readonly value={estilo.empatia}/>
+                        <input className='estiloPoints' type="text" readOnly value={estilo.empatia}/>
                     </div>
                     <div className='estiloBox'>
                         <div className='estiloName'>➧Hechizos:</div>
-                        <input className='estiloPoints' type="text" readonly value={estilo.hechizos}/>
+                        <input className='estiloPoints' type="text" readOnly value={estilo.hechizos}/>
                     </div>
                     <div className='estiloBox'>
                         <div className='estiloName'>➧Herbología:</div>
-                        <input className='estiloPoints' type="text" readonly value={estilo.adivinación}/>
+                        <input className='estiloPoints' type="text" readOnly value={estilo.adivinación}/>
                     </div>
                     <div className='estiloBox'>
                         <div className='estiloName'>Historia Mágica:</div>
-                        <input className='estiloPoints' type="text" readonly value={estilo.historiaMagica}/>
+                        <input className='estiloPoints' type="text" readOnly value={estilo.historiaMagica}/>
                     </div>
                     <div className='estiloBox'>
                         <div className='estiloName'>Idiomas:</div>
-                        <input className='estiloPoints' type="text" readonly value={estilo.idiomas}/>
+                        <input className='estiloPoints' type="text" readOnly value={estilo.idiomas}/>
                     </div>
                     <div className='estiloBox'>
                         <div className='estiloName'>Investigar:</div>
-                        <input className='estiloPoints' type="text" readonly value={estilo.investigar}/>
+                        <input className='estiloPoints' type="text" readOnly value={estilo.investigar}/>
                     </div>
                     <div className='estiloBox'>
                         <div className='estiloName'>Pelea:</div>
-                        <input className='estiloPoints' type="text" readonly value={estilo.pelea}/>
+                        <input className='estiloPoints' type="text" readOnly value={estilo.pelea}/>
                     </div>
                     <div className='estiloBox'>
                         <div className='estiloName'>Pilotar:</div>
-                        <input className='estiloPoints' type="text" readonly value={estilo.pilotar}/>
+                        <input className='estiloPoints' type="text" readOnly value={estilo.pilotar}/>
                     </div>
                     <div className='estiloBox'>
                         <div className='estiloName'>➧Pociones:</div>
-                        <input className='estiloPoints' type="text" readonly value={estilo.pociones}/>
+                        <input className='estiloPoints' type="text" readOnly value={estilo.pociones}/>
                     </div>
                     <div className='estiloBox'>
                         <div className='estiloName'>Recursos:</div>
-                        <input className='estiloPoints' type="text" readonly value={estilo.recursos}/>
+                        <input className='estiloPoints' type="text" readOnly value={estilo.recursos}/>
                     </div>
                     <div className='estiloBox'>
                         <div className='estiloName'>Resistencia:</div>
-                        <input className='estiloPoints' type="text" readonly value={estilo.resistencia}/>
+                        <input className='estiloPoints' type="text" readOnly value={estilo.resistencia}/>
                     </div>
                     <div className='estiloBox'>
                         <div className='estiloName'>Sigilo:</div>
-                        <input className='estiloPoints' type="text" readonly value={estilo.sigilo}/>
+                        <input className='estiloPoints' type="text" readOnly value={estilo.sigilo}/>
                     </div>
                     <div className='estiloBox'>
                         <div className='estiloName'>Supervivencia:</div>
-                        <input className='estiloPoints' type="text" readonly value={estilo.empatia}/>
+                        <input className='estiloPoints' type="text" readOnly value={estilo.empatia}/>
                     </div>
                     <div className='estiloBox'>
                         <div className='estiloName'>➧Teoria Mágica:</div>
-                        <input className='estiloPoints' type="text" readonly value={estilo.hechizos}/>
+                        <input className='estiloPoints' type="text" readOnly value={estilo.teoriaMagica}/>
                     </div>
                     <div className='estiloBox'>
                         <div className='estiloName'>➧Transfiguración:</div>
-                        <input className='estiloPoints' type="text" readonly value={estilo.hechizos}/>
+                        <input className='estiloPoints' type="text" readOnly value={estilo.transfiguracion}/>
                     </div>
                     <div className='estiloBox'>
                         <div className='estiloName'>Voluntad:</div>
-                        <input className='estiloPoints' type="text" readonly value={estilo.hechizos}/>
+                        <input className='estiloPoints' type="text" readOnly value={estilo.voluntad}/>
                     </div>
                 </div>
             )}
