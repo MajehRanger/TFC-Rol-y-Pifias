@@ -1,0 +1,6 @@
+Azul Oscuro:#113286
+azul medio:#234198
+Azul Claro: #455fbc
+Marron Oscuro:#eed4b7
+Marron Claro:#f7ead0
+Marron muy Claro: #ffffe8

@@ -1,6 +1,9 @@
 *{
     width: 100%;
 }
+main{
+    display: flex;
+}
 .ficha{
     background-color: bisque;
     width: 80%;

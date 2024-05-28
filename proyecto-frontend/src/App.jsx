@@ -2,18 +2,21 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import ListSheetComponent from "./components/ListSheetComponent";
-import { HeaderComponent } from "./components/HeaderComponent";
-import { FooterComponent } from "./components/FooterComponent";
+import { LateralComponent } from "./components/lateral-menu/LateralComponent";
+import { HeaderComponent } from "./components/header/HeaderComponent";
+import {ListSheetComponent} from "./components/sheetList/ListSheetComponent";
 
 function App() {
   return (
     <>
       <HeaderComponent />
-      <div className="ficha">
-        <ListSheetComponent />
-      </div>
-      <FooterComponent />
+      <main>
+      <LateralComponent />
+      <ListSheetComponent/>
+      </main>
+      
+
+      
     </>
   );
 }
