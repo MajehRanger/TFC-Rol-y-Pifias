@@ -7,10 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.proyecto.dto.CharacterSheetDTO;
-import com.proyecto.exception.ResourceNotFoundException;
 import com.proyecto.mapper.CharacterSheetMapper;
 import com.proyecto.model.CharacterSheet;
-import com.proyecto.model.Player;
 import com.proyecto.repository.CharacterSheetRepository;
 import com.proyecto.service.CharacterSheetService;
 
@@ -27,7 +25,7 @@ public class CharacterSheetServiceImpl implements CharacterSheetService{
     private CharacterSheetMapper characterSheetMapper;
 
     @Override
-    public CharacterSheetDTO getCharacterSheetById(long id) {
+    public CharacterSheetDTO getCharacterSheetById(Long id) {
         CharacterSheet sheet = characterSheetRepository.findById(id).orElseThrow(() -> new RuntimeException("Character Sheet not found"));
         return characterSheetMapper.mapToSheetDTO(sheet);
     }
@@ -41,23 +39,21 @@ public class CharacterSheetServiceImpl implements CharacterSheetService{
     }
 
     @Override
-    public CharacterSheetDTO createCharacterSheet(CharacterSheetDTO sheetDTO) {
+    public void createCharacterSheet(CharacterSheetDTO sheetDTO) {
         CharacterSheet sheet = characterSheetMapper.mapToSheet(sheetDTO);
-        sheet = characterSheetRepository.save(sheet);
-        return characterSheetMapper.mapToSheetDTO(sheet);
+        characterSheetRepository.save(sheet);
     }
 
     @Override
-    public CharacterSheetDTO updateCharacterSheet(long id, CharacterSheetDTO sheetDTO) {
+    public void updateCharacterSheet(Long id, CharacterSheetDTO sheetDTO) {
         CharacterSheet existingSheet = characterSheetRepository.findById(id).orElseThrow(() -> new RuntimeException("Character Sheet not found"));
         CharacterSheet updatedSheet = characterSheetMapper.mapToSheet(sheetDTO);
         updatedSheet.setId(existingSheet.getId());
-        updatedSheet = characterSheetRepository.save(updatedSheet);
-        return characterSheetMapper.mapToSheetDTO(updatedSheet);
+        characterSheetRepository.save(updatedSheet);
     }
 
     @Override
-    public void deleteCharacterSheet(long id) {
+    public void deleteCharacterSheet(Long id) {
         characterSheetRepository.deleteById(id);
     }
 

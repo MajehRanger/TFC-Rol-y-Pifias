@@ -1,6 +1,7 @@
 package com.proyecto.service;
 
 import com.proyecto.dto.EstilosDTO;
+
 import java.util.List;
 
 public interface EstilosService {

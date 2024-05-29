@@ -15,5 +15,5 @@ public class CharacterSheetDTO {
     private int px;
     private String description;
     private EstilosDTO estilos;
-    private PlayerDTO player;
+    private int player;
 }

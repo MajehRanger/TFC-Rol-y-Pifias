@@ -3,7 +3,7 @@ package com.proyecto.service.impl;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import com.proyecto.dto.EstilosDTO;
@@ -13,13 +13,12 @@ import com.proyecto.repository.EstilosRepository;
 import com.proyecto.service.EstilosService;
 
 @Service
+@AllArgsConstructor
 public class EstilosServiceImpl implements EstilosService {
 
-    @Autowired
-    private EstilosRepository estilosRepository;
+    private final EstilosRepository estilosRepository;
 
-    @Autowired
-    private EstilosMapper estilosMapper;
+    private final EstilosMapper estilosMapper;
 
     @Override
     public EstilosDTO getEstilosById(long id) {

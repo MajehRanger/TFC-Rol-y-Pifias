@@ -1,8 +1,8 @@
 package com.proyecto.model;
 
-
-
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,6 +15,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @NoArgsConstructor
@@ -36,7 +37,9 @@ public class Player {
     @Column(name = "player_password", nullable = false)
     private String password;
 
-    @OneToMany(mappedBy = "player", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<CharacterSheet> characterSheets;
+   @OneToMany(mappedBy = "player", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+   @ToString.Exclude
+   @JsonBackReference
+   private List<CharacterSheet> characterSheets;
     
 }

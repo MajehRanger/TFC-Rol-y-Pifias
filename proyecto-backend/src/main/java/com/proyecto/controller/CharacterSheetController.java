@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -29,9 +28,9 @@ public class CharacterSheetController {
     private CharacterSheetService characterSheetService;
 
     @PostMapping("/add")
-    public ResponseEntity<CharacterSheetDTO> createCharacterSheet(@RequestBody CharacterSheetDTO sheetDTO) {
-        CharacterSheetDTO createdSheet = characterSheetService.createCharacterSheet(sheetDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdSheet);
+    public ResponseEntity<Void> createCharacterSheet(@RequestBody CharacterSheetDTO sheetDTO) {
+        characterSheetService.createCharacterSheet(sheetDTO);
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/get/{id}")
@@ -48,9 +47,9 @@ public class CharacterSheetController {
 
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<CharacterSheetDTO> updateCharacterSheet(@PathVariable long id, @RequestBody CharacterSheetDTO sheetDTO) {
-        CharacterSheetDTO updatedSheet = characterSheetService.updateCharacterSheet(id, sheetDTO);
-        return ResponseEntity.ok(updatedSheet);
+    public ResponseEntity<Void> updateCharacterSheet(@PathVariable long id, @RequestBody CharacterSheetDTO sheetDTO) {
+        characterSheetService.updateCharacterSheet(id, sheetDTO);
+        return ResponseEntity.noContent().build();
     }
 
     @DeleteMapping("/delete/{id}")

@@ -6,13 +6,13 @@ import com.proyecto.dto.PlayerDTO;
 
 public interface PlayerService {
 
-    PlayerDTO getPlayerById(long id);
+    PlayerDTO getPlayerById(Long id);
 
     List<PlayerDTO> getAllPlayers();
 
-    PlayerDTO createPlayer(PlayerDTO playerDTO);
+    void createPlayer(PlayerDTO playerDTO);
 
-    PlayerDTO updatePlayer(long id, PlayerDTO playerDTO);
+    void updatePlayer(Long id, PlayerDTO playerDTO);
 
-    void deletePlayer(long id);
+    void deletePlayer(Long id);
 }

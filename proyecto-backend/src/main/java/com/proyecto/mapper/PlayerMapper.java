@@ -2,17 +2,12 @@ package com.proyecto.mapper;
 
 import java.util.List;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.factory.Mappers;
 
-import com.proyecto.dto.CharacterSheetDTO;
 import com.proyecto.dto.PlayerDTO;
-import com.proyecto.model.CharacterSheet;
 import com.proyecto.model.Player;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {CharacterSheetMapper.class})
 public interface PlayerMapper {
-    PlayerMapper INSTANCE = Mappers.getMapper(PlayerMapper.class);
 
     PlayerDTO mapToPlayerDTO(Player player);
 
@@ -23,5 +18,5 @@ public interface PlayerMapper {
     List<Player> mapToPlayers(List<PlayerDTO> playerDTOs);
 
     // Mapeo OneToMany
-    List<CharacterSheetDTO> mapToCharacterSheetDTOs(List<CharacterSheet> characterSheets);
+   // List<CharacterSheetDTO> mapToCharacterSheetDTOs(List<CharacterSheet> characterSheets);
 }
