@@ -5,13 +5,14 @@ import java.util.List;
 import com.proyecto.dto.PlayerDTO;
 
 public interface PlayerService {
-    PlayerDTO createUser(PlayerDTO playerDTO);
 
-    PlayerDTO getPlayerById(Long playerId);
+    PlayerDTO getPlayerById(Long id);
 
     List<PlayerDTO> getAllPlayers();
 
-    PlayerDTO updatePlayer(Long playerId, PlayerDTO updatedPlayer);
-    
-    void deletePlayer(Long userId);
+    void createPlayer(PlayerDTO playerDTO);
+
+    void updatePlayer(Long id, PlayerDTO playerDTO);
+
+    void deletePlayer(Long id);
 }

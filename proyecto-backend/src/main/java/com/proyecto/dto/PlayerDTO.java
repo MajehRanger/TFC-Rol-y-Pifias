@@ -1,5 +1,7 @@
 package com.proyecto.dto;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,8 +10,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class PlayerDTO {
-    private Long id;
+    private long id;
     private String name;
     private String email;
     private String password;
+    private List<CharacterSheetDTO> characterSheets;
 }
