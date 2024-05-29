@@ -5,13 +5,13 @@ import java.util.List;
 import com.proyecto.dto.CharacterSheetDTO;
 
 public interface CharacterSheetService {
-    CharacterSheetDTO createSheet(CharacterSheetDTO characterSheetDTO);
+    CharacterSheetDTO getCharacterSheetById(long id);
 
-    CharacterSheetDTO getSheetById(Long sheetId);
+    List<CharacterSheetDTO> getAllCharacterSheets();
 
-    List<CharacterSheetDTO> getAllSheets();
+    CharacterSheetDTO createCharacterSheet(CharacterSheetDTO sheetDTO);
 
-    CharacterSheetDTO updateSheet(Long sheetId, CharacterSheetDTO characterSheetDTO);
+    CharacterSheetDTO updateCharacterSheet(long id, CharacterSheetDTO sheetDTO);
 
-    void deleteSheet(Long sheetId);
+    void deleteCharacterSheet(long id);
 }

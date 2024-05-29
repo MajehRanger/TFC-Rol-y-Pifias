@@ -1,24 +1,27 @@
 package com.proyecto.mapper;
 
+import java.util.List;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.factory.Mappers;
+
+import com.proyecto.dto.CharacterSheetDTO;
 import com.proyecto.dto.PlayerDTO;
+import com.proyecto.model.CharacterSheet;
 import com.proyecto.model.Player;
 
-public class PlayerMapper {
-    public static PlayerDTO mapToUserDTO(Player user){
-        return new PlayerDTO(
-            user.getId(),
-            user.getName(),
-            user.getEmail(),
-            user.getPassword()
-        );
-    }
+@Mapper(componentModel = "spring")
+public interface PlayerMapper {
+    PlayerMapper INSTANCE = Mappers.getMapper(PlayerMapper.class);
 
-    public static Player mapToUser(PlayerDTO userDTO){
-        return new Player(
-            userDTO.getId(),
-            userDTO.getName(),
-            userDTO.getEmail(),
-            userDTO.getPassword()
-        );
-    }
+    PlayerDTO mapToPlayerDTO(Player player);
+
+    Player mapToPlayer(PlayerDTO playerDTO);
+
+    List<PlayerDTO> mapToPlayerDTOs(List<Player> players);
+
+    List<Player> mapToPlayers(List<PlayerDTO> playerDTOs);
+
+    // Mapeo OneToMany
+    List<CharacterSheetDTO> mapToCharacterSheetDTOs(List<CharacterSheet> characterSheets);
 }

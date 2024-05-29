@@ -1,25 +1,23 @@
 package com.proyecto.mapper;
 
+import java.util.List;
+import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
+
 import com.proyecto.dto.CharacterSheetDTO;
 import com.proyecto.model.CharacterSheet;
 
-public class CharacterSheetMapper {
-    public static CharacterSheetDTO mapToSheetDTO(CharacterSheet sheet){
-        return new CharacterSheetDTO(
-            sheet.getId(),
-            sheet.getCharacterName(),
-            sheet.getPd(),
-            sheet.getPx(),
-            sheet.getNotes()
-        );
-    }
-public static CharacterSheet mapToSheet(CharacterSheetDTO sheetDTO) {
-        return new CharacterSheet(
-            sheetDTO.getId(),
-            sheetDTO.getCharacterName(),
-            sheetDTO.getPd(),
-            sheetDTO.getPx(),
-            sheetDTO.getNotes()
-        );
-    }
+@Mapper(componentModel = "spring", uses = { EstilosMapper.class, PlayerMapper.class })
+public interface CharacterSheetMapper {
+    CharacterSheetMapper INSTANCE = Mappers.getMapper(CharacterSheetMapper.class);
+    
+    CharacterSheetDTO mapToSheetDTO(CharacterSheet sheet);
+
+    CharacterSheet mapToSheet(CharacterSheetDTO sheetDTO);
+
+    List<CharacterSheetDTO> mapToSheetDTOs(List<CharacterSheet> sheets);
+
+    List<CharacterSheet> mapToSheets(List<CharacterSheetDTO> sheetDTOs);
+
+
 }

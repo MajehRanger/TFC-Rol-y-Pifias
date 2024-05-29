@@ -19,13 +19,51 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class PlayerServiceImpl implements PlayerService {
 
-    private PlayerRepository playerRepository;
+    private final PlayerRepository playerRepository;
+
+    private final PlayerMapper playerMapper;
 
     @Override
-    public PlayerDTO createUser(PlayerDTO userDTO) {
-        Player player = PlayerMapper.mapToUser(userDTO);
+    public PlayerDTO getPlayerById(long id) {
+        Player player = playerRepository.findById(id).orElseThrow(() -> new RuntimeException("Player not found"));
+        return playerMapper.mapToPlayerDTO(player);
+    }
+
+    @Override
+    public List<PlayerDTO> getAllPlayers() {
+        List<Player> players = playerRepository.findAll();
+        return players.stream()
+                      .map(playerMapper::mapToPlayerDTO)
+                      .collect(Collectors.toList());
+    }
+
+    @Override
+    public PlayerDTO createPlayer(PlayerDTO playerDTO) {
+        Player player = playerMapper.mapToPlayer(playerDTO);
+        player = playerRepository.save(player);
+        return playerMapper.mapToPlayerDTO(player);
+    }
+
+    @Override
+    public PlayerDTO updatePlayer(long id, PlayerDTO playerDTO) {
+        Player existingPlayer = playerRepository.findById(id).orElseThrow(() -> new RuntimeException("Player not found"));
+        Player updatedPlayer = playerMapper.mapToPlayer(playerDTO);
+        updatedPlayer.setId(existingPlayer.getId());
+        updatedPlayer = playerRepository.save(updatedPlayer);
+        return playerMapper.mapToPlayerDTO(updatedPlayer);
+    }
+
+    @Override
+    public void deletePlayer(long id) {
+        playerRepository.deleteById(id);
+    }
+
+/* 
+    @Override
+    public PlayerDTO createPlayer(PlayerDTO userDTO) {
+        Player player = PlayerMapper.mapToPlayer(userDTO);
         Player savedPlayer = playerRepository.save(player);
-        return PlayerMapper.mapToUserDTO(savedPlayer);
+        return PlayerMapper.mapToPlayerDTO(savedPlayer);
     }
 
     @Override
@@ -34,13 +72,13 @@ public class PlayerServiceImpl implements PlayerService {
                 .orElseThrow(() -> 
                 new ResourceNotFoundException("No existe un usuario con la id: " + playerId));
 
-        return PlayerMapper.mapToUserDTO(player);
+        return PlayerMapper.mapToPlayerDTO(player);
     }
 
     @Override
     public List<PlayerDTO> getAllPlayers() {
         List<Player> players = playerRepository.findAll();
-        return players.stream().map((player) -> PlayerMapper.mapToUserDTO(player))
+        return players.stream().map((player) -> PlayerMapper.mapToPlayerDTO(player))
                 .collect(Collectors.toList());
     }
 
@@ -54,7 +92,7 @@ public class PlayerServiceImpl implements PlayerService {
 
         Player playerUpdatedObj = playerRepository.save(player);
 
-        return PlayerMapper.mapToUserDTO(playerUpdatedObj);
+        return PlayerMapper.mapToPlayerDTO(playerUpdatedObj);
     }
 
     @Override
@@ -64,7 +102,7 @@ public class PlayerServiceImpl implements PlayerService {
 
         playerRepository.deleteById(playerId);
     }
-
+*/
     
 
 }
