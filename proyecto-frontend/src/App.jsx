@@ -5,6 +5,7 @@ import "./App.css";
 import { LateralComponent } from "./components/lateral-menu/LateralComponent";
 import { HeaderComponent } from "./components/header/HeaderComponent";
 import {ListSheetComponent} from "./components/sheetList/ListSheetComponent";
+import { SheetEstilosComponent } from "./components/SheetEstilosComponent/SheetEstilosComponent";
 
 function App() {
   return (
@@ -12,7 +13,11 @@ function App() {
       <HeaderComponent />
       <main>
       <LateralComponent />
-      <ListSheetComponent/>
+      <div>
+      
+      <SheetEstilosComponent/>
+      </div>
+      
       </main>
       
 
@@ -20,5 +25,5 @@ function App() {
     </>
   );
 }
-
+//<ListSheetComponent/>
 export default App;

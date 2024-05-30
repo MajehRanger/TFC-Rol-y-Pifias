@@ -21,19 +21,19 @@ export const ListSheetComponent= () => {
                 <table>
                   <thead>
                     <tr>
-                      <th className='listItem'>Nombre</th>
-                      <th className='listItem'>Notas</th>
-                      <th></th>
-                      <th></th>
+                      <th className='listItem listName'>Nombre</th>
+                      <th className='listItem listDesc'>Breve descripción</th>
+                      <th className='listButton'></th>
+                      <th className='listButton'></th>
                     </tr>
                   </thead>
                 {
                   sheets && ( // Condicional para renderizar solo si sheets no es null
                 sheets.map(sheet =>
                   <tbody  key={sheet.id}>
-                    <tr>
-                      <td className='listItem'>{sheet.characterName}</td>
-                      <td className='listItem'>{sheet.notes}</td>
+                    <tr className='rowTable'>
+                      <td className='listItem listName'>{sheet.characterName}</td>
+                      <td className='listItem listDesc'>{sheet.description}</td>
                       <td className='listButton'><button>editar</button></td>
                       <td className='listButton'><button>borrar</button></td>
                     </tr>

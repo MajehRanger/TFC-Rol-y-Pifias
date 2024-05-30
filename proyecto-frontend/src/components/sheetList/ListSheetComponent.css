@@ -5,17 +5,17 @@
     margin-top: 5vh;
     background-color: #f7ead0;
     border-radius: 10px;
-    height: 100%;
     padding-top: 2vh;
     padding-bottom: 2vh;
 }
 table{
     background-color: white;
-    width: 90%;
-    margin: auto;
+}
+.rowTable:hover{
+    background-color: #faf8f5;
 }
 .listItem{
-    width: 50%;
+    padding: 2vh;
 }
 .listButton{
     max-width: 5%;
@@ -30,4 +30,10 @@ th{
 }
 .listButton button:hover{
     background-color: #234198;
+}
+.listName{
+    width: 20%;
+}
+.listDesc{
+    width: 70%;
 }

@@ -1,0 +1,48 @@
+.body{
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    margin-top: 5vh;
+    background-color: #f7ead0;
+    border-radius: 10px;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+.estiloBox{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 2px;
+    width: 60%;
+    border-radius: 5px;
+    padding: 1vh;
+    margin:auto;
+}
+.estiloBox:hover{
+    background-color: #faf8f5;
+}
+.interiorBox{
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+    
+}
+.estiloName{
+    width: max-content;
+    font-size: 30px;
+}
+.estiloPoints{
+    justify-self: end;
+    background-color: #455fbc;
+    color: white;
+    max-width: 50px;
+    text-align: center;
+    border-radius: 50%;
+
+}
+.estiloBtn{
+    background-color: #113286;
+    color: white;
+    width: 10%;
+}

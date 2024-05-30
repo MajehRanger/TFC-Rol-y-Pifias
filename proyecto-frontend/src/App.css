@@ -4,47 +4,7 @@
 main{
     display: flex;
 }
-.ficha{
-    background-color: bisque;
-    width: 80%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    margin: auto;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    border-radius: 5px;
-}
 
-.sheetBox div{
-    background-color: aliceblue;
-}
-img{
-    min-width: 80px;
-    width: 22%;
-    justify-self: center;
-    border-radius: 5px;
-}
-.estiloBox{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    border: 1px solid black;
-    margin-bottom: 2px;
-    width: 80%;
-    background-color: aliceblue;
-    border-radius: 5px;
-    padding: 2px;
-}
-.estiloName{
-    width: max-content;
-}
-.estiloPoints{
-    background-color: aliceblue;
-    color: black;
-    width: 30px;
-    text-align: center;
-
-}
 .aspectos{
 justify-content: center;
 
