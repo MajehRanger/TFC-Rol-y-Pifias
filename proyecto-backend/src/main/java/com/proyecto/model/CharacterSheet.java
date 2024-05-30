@@ -1,6 +1,7 @@
 package com.proyecto.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -26,6 +27,13 @@ public class CharacterSheet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @ManyToOne
+    @JoinColumn(name = "player_id", nullable = false)
+    @ToString.Exclude
+    @JsonBackReference
+    private Player player;
+
     @Column(name = "character_name")
     private String characterName;
     @Column(name = "destiny_points")
@@ -39,9 +47,7 @@ public class CharacterSheet {
     @JoinColumn(name = "estilos_id", referencedColumnName = "id")
     private Estilos estilos;
 
-    @ManyToOne
-    @JoinColumn(name = "player_id", nullable = false)
-    @ToString.Exclude
-    @JsonBackReference
-    private Player player;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "wand_id", referencedColumnName = "id")
+    private Wand wand;
 }

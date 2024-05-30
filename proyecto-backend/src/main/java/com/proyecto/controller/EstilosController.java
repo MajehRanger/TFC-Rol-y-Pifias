@@ -2,7 +2,6 @@ package com.proyecto.controller;
 
 import java.util.List;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -41,14 +40,14 @@ public class EstilosController {
 
     @PostMapping("/add")
     public ResponseEntity<EstilosDTO> createEstilos(@RequestBody EstilosDTO estilosDTO) {
-        EstilosDTO createdEstilos = estilosService.createEstilos(estilosDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdEstilos);
+        estilosService.createEstilos(estilosDTO);
+        return ResponseEntity.noContent().build();
     }
 
     @PutMapping("/update/{id}")
     public ResponseEntity<EstilosDTO> updateEstilos(@PathVariable long id, @RequestBody EstilosDTO estilosDTO) {
-        EstilosDTO updatedEstilos = estilosService.updateEstilos(id, estilosDTO);
-        return ResponseEntity.ok(updatedEstilos);
+        estilosService.updateEstilos(id, estilosDTO);
+        return ResponseEntity.noContent().build();
     }
 
     @DeleteMapping("/delete/{id}")

@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 class ProyectoApplicationTests {
@@ -20,7 +19,7 @@ class ProyectoApplicationTests {
 	@Test
 	void contextLoads() {
 		EstilosDTO source = Instancio.create(EstilosDTO.class);
-		Estilos mapped = mapper.mapToEstilos(source);
+		Estilos mapped = mapper.mapToEntity(source);
 		assertThat(mapped).usingRecursiveComparison().isEqualTo(source);
 	}
 

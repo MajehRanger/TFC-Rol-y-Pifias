@@ -9,11 +9,11 @@ import com.proyecto.model.Estilos;
 @Mapper(componentModel = "spring")
 public interface EstilosMapper {
 
-        EstilosDTO mapToEstilosDTO(Estilos estilos);
+        EstilosDTO mapToDTO(Estilos estilos);
 
-        Estilos mapToEstilos(EstilosDTO estilosDTO);
+        Estilos mapToEntity(EstilosDTO estilosDTO);
 
-        List<EstilosDTO> mapToEstilosDTOs(List<Estilos> estilos);
+        List<EstilosDTO> mapToDTOs(List<Estilos> estilos);
 
-        List<Estilos> mapToEstiloss(List<EstilosDTO> estilosDTOs);
+        List<Estilos> mapToEntities(List<EstilosDTO> estilosDTOs);
 }

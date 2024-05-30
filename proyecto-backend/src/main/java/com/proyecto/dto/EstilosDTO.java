@@ -1,7 +1,5 @@
 package com.proyecto.dto;
 
-import com.proyecto.model.CharacterSheet;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

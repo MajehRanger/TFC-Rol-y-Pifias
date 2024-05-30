@@ -9,13 +9,13 @@ import com.proyecto.model.Player;
 @Mapper(componentModel = "spring", uses = {CharacterSheetMapper.class})
 public interface PlayerMapper {
 
-    PlayerDTO mapToPlayerDTO(Player player);
+    PlayerDTO mapToDTO(Player player);
 
-    Player mapToPlayer(PlayerDTO playerDTO);
+    Player mapToEntity(PlayerDTO playerDTO);
 
-    List<PlayerDTO> mapToPlayerDTOs(List<Player> players);
+    List<PlayerDTO> mapToDTOs(List<Player> players);
 
-    List<Player> mapToPlayers(List<PlayerDTO> playerDTOs);
+    List<Player> mapToEntities(List<PlayerDTO> playerDTOs);
 
     // Mapeo OneToMany
    // List<CharacterSheetDTO> mapToCharacterSheetDTOs(List<CharacterSheet> characterSheets);
