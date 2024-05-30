@@ -26,7 +26,7 @@ import lombok.ToString;
 public class CharacterSheet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "player_id", nullable = false)
@@ -37,9 +37,9 @@ public class CharacterSheet {
     @Column(name = "character_name")
     private String characterName;
     @Column(name = "destiny_points")
-    private int pd;
+    private Integer pd;
     @Column(name = "experience_points")
-    private int px;
+    private Integer px;
     @Column(name = "character_desc")
     private String description;
     

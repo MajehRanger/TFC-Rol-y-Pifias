@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 public class CharacterSheetDTO {
     private Long id;
     private String characterName;
-    private int pd;
-    private int px;
+    private Integer pd;
+    private Integer px;
     private String description;
     private EstilosDTO estilos;
     private int player;
