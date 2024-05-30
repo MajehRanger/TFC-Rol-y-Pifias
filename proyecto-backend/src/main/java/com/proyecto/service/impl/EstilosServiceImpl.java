@@ -23,31 +23,29 @@ public class EstilosServiceImpl implements EstilosService {
     @Override
     public EstilosDTO getEstilosById(long id) {
         Estilos estilos = estilosRepository.findById(id).orElseThrow(() -> new RuntimeException("Estilos not found"));
-        return estilosMapper.mapToEstilosDTO(estilos);
+        return estilosMapper.mapToDTO(estilos);
     }
 
     @Override
     public List<EstilosDTO> getAllEstilos() {
         List<Estilos> estilosList = estilosRepository.findAll();
         return estilosList.stream()
-                          .map(estilosMapper::mapToEstilosDTO)
+                          .map(estilosMapper::mapToDTO)
                           .collect(Collectors.toList());
     }
 
     @Override
-    public EstilosDTO createEstilos(EstilosDTO estilosDTO) {
-        Estilos estilos = estilosMapper.mapToEstilos(estilosDTO);
-        estilos = estilosRepository.save(estilos);
-        return estilosMapper.mapToEstilosDTO(estilos);
+    public void createEstilos(EstilosDTO estilosDTO) {
+        Estilos estilos = estilosMapper.mapToEntity(estilosDTO);
+        estilosRepository.save(estilos);
     }
 
     @Override
-    public EstilosDTO updateEstilos(long id, EstilosDTO estilosDTO) {
+    public void updateEstilos(long id, EstilosDTO estilosDTO) {
         Estilos existingEstilos = estilosRepository.findById(id).orElseThrow(() -> new RuntimeException("Estilos not found"));
-        Estilos updatedEstilos = estilosMapper.mapToEstilos(estilosDTO);
+        Estilos updatedEstilos = estilosMapper.mapToEntity(estilosDTO);
         updatedEstilos.setId(existingEstilos.getId());
-        updatedEstilos = estilosRepository.save(updatedEstilos);
-        return estilosMapper.mapToEstilosDTO(updatedEstilos);
+        estilosRepository.save(updatedEstilos);
     }
 
     @Override

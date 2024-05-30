@@ -17,31 +17,31 @@ public class Estilos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private int adivinacion;
-    private int alerta;
-    private int armas;
-    private int artesOscuras;
-    private int carisma;
-    private int criaturasMagicas;
-    private int ciencias;
-    private int conocimientosMuggle;
-    private int contactos;
-    private int deportesMagicos;
-    private int empatia;
-    private int hechizos;
-    private int herbologia;
-    private int historiaMagica;
-    private int idiomas;
-    private int investigar;
-    private int pelea;
-    private int pilotar;
-    private int pociones;
-    private int recursos;
-    private int resistencia;
-    private int sigilo;
-    private int supervivencia;
-    private int teoriaMagica;
-    private int transfiguracion;
-    private int voluntad;
+    private Integer adivinacion;
+    private Integer alerta;
+    private Integer armas;
+    private Integer artesOscuras;
+    private Integer carisma;
+    private Integer criaturasMagicas;
+    private Integer ciencias;
+    private Integer conocimientosMuggle;
+    private Integer contactos;
+    private Integer deportesMagicos;
+    private Integer empatia;
+    private Integer hechizos;
+    private Integer herbologia;
+    private Integer historiaMagica;
+    private Integer idiomas;
+    private Integer investigar;
+    private Integer pelea;
+    private Integer pilotar;
+    private Integer pociones;
+    private Integer recursos;
+    private Integer resistencia;
+    private Integer sigilo;
+    private Integer supervivencia;
+    private Integer teoriaMagica;
+    private Integer transfiguracion;
+    private Integer voluntad;
 
 }
