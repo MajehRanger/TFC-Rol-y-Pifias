@@ -14,7 +14,6 @@ function App() {
       <main>
       <LateralComponent />
       <div>
-      
       <SheetEstilosComponent/>
       </div>
       

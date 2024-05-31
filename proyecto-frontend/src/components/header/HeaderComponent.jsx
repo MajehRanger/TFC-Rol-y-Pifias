@@ -10,7 +10,7 @@ export const HeaderComponent = () => {
         </div>
         <div className="right">
           <button className="headerButton"><a href="https://lauraguerrero.itch.io/secretos-del-mundo-magico">Manuales</a></button>
-          <button className="headerButton">Ajustes</button>
+          <button className="headerButton">Info</button>
           <button className="headerButton">Salir</button>
         </div>
     </header>

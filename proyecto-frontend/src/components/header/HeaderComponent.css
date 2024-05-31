@@ -16,13 +16,14 @@
 }
 
 .header .logo {
-    width: 15vh;
+    width: 13vh;
     margin-right: 10px;
 }
 
 .header .site-name {
-    font-size: 80px;
+    font-size: 90px;
     font-weight: bold;
+    cursor: default;
 }
 
 .header .right {
@@ -33,7 +34,7 @@
 
 .header .headerButton {
     margin-right: 10px;
-    width: 10vw;
+    width: 5vw;
     padding: 10px;
     background-color: #113286;
     color: white;
@@ -50,7 +51,15 @@ a{
     text-decoration: none;
     color: white;
 }
+a:hover{
+    text-decoration: none;
+    color: white;
+}
 a:any-link{
+    text-decoration: none;
+    color: white;
+}
+a:any-link:hover{
     text-decoration: none;
     color: white;
 }
