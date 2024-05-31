@@ -120,6 +120,9 @@
             <artifactId>maven-compiler-plugin</artifactId>
             <version>3.10.1</version>
             <configuration>
+			<compilerArgs>
+                    <arg>-Amapstruct.verbose=true</arg>
+                </compilerArgs>
                 <source>17</source>
                 <target>17</target>
                 <annotationProcessorPaths>
