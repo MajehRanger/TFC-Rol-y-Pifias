@@ -7,7 +7,7 @@ import com.proyecto.service.PlayerService;
 
 import lombok.AllArgsConstructor;
 
-import java.util.List;
+//import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+//import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -36,7 +36,7 @@ public class PlayerController {
         PlayerDTO playerDTO = playerService.getPlayerById(idLong);
         return ResponseEntity.ok(playerDTO);
     }
-
+/*
     @GetMapping("/getall")
     public ResponseEntity<List<PlayerDTO>> getAllPlayers() {
         List<PlayerDTO> players = playerService.getAllPlayers();
@@ -48,7 +48,7 @@ public class PlayerController {
     public ResponseEntity<Void> createPlayer(@RequestBody PlayerDTO playerDTO) {
         playerService.createPlayer(playerDTO);
         return ResponseEntity.noContent().build();
-    }
+    }*/
 
     @PutMapping("/update/{id}")
     public ResponseEntity<Void> updatePlayer(@PathVariable long id, @RequestBody PlayerDTO playerDTO) {

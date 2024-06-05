@@ -41,6 +41,7 @@ public class CharacterSheetController {
 
     @GetMapping("/getall")
     public ResponseEntity<List<CharacterSheetDTO>> getAllCharacterSheets() {
+        System.out.println("===========================================");
         List<CharacterSheetDTO> sheets = characterSheetService.getAllCharacterSheets();
         return ResponseEntity.ok(sheets);
     }
