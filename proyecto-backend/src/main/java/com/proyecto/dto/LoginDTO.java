@@ -1,2 +1,9 @@
-package com.proyecto.dto;public class loginDTO {
+package com.proyecto.dto;
+
+import lombok.Data;
+
+@Data
+public class LoginDTO {
+    private String email;
+    private  String password;
 }

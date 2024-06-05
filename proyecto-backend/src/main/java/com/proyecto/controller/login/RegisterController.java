@@ -1,37 +1,59 @@
 package com.proyecto.controller.login;
 
-import com.proyecto.dto.LoginDTO;
-import com.proyecto.security.UserDetailsImpl;
-import com.proyecto.security.jwt.JwtService;
+import com.proyecto.dto.RegisterDTO;
+//import com.proyecto.mapper.PlayerMapper;
+import com.proyecto.model.Player;
+import com.proyecto.repository.PlayerRepository;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/login")
-public class LoginController {
-    private final AuthenticationManager authenticationManager;
-    private final JwtService jwtService;
+@RequestMapping("/register")
+public class RegisterController {
+
+    //private final PlayerMapper playerMapper;
+    private final PasswordEncoder passwordEncoder;
+    private final PlayerRepository playerRepository;
+
 
     @PostMapping({"", "/"})
-    public ResponseEntity<String> login(@RequestBody LoginDTO loginDTO){
+    public ResponseEntity<String> register(@RequestBody @Valid RegisterDTO registerDTO, BindingResult bindingResult){
+
+        if(bindingResult.hasErrors()){
+            List<String> errors = bindingResult.getFieldErrors().stream().map(e -> e.getField() + ": " + e.getDefaultMessage()).toList();
+            System.out.println(errors);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error");
+        }
+
         try{
-            Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginDTO.getEmail(), loginDTO.getPassword()));
-            UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-            String token = jwtService.createToken(userDetails.getEmail());
-            return ResponseEntity.ok(token);
+
+
+            Player player = new Player();
+            player.setPassword(passwordEncoder.encode(registerDTO.getPassword()));
+            player.setName(registerDTO.getName());
+            player.setEmail(registerDTO.getEmail());
+            player.setCharacterSheets(new ArrayList<>());
+            playerRepository.save(player);
+
+            // convertir el dto en un Player
+
+
+            return ResponseEntity.ok("OK saver");
         }catch (AuthenticationException e){
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
-
-    @PostMapping("/register")
-
 }
