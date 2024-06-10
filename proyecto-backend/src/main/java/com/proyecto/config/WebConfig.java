@@ -11,6 +11,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer{
+    
+    @SuppressWarnings("null")
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters){
         MappingJackson2HttpMessageConverter jsonConverter = new MappingJackson2HttpMessageConverter();
         jsonConverter.setDefaultCharset(StandardCharsets.UTF_8);
