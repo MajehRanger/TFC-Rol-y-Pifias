@@ -1,0 +1,65 @@
+.header {
+    display: flex;
+    height: 15vh;
+    justify-content: space-between;
+    align-items: center;
+    color: #113286;
+    width: 100%;
+    border-bottom: 1vh #113286 solid;
+}
+
+.header .left {
+    display: flex;
+    align-items: flex-start;
+    width: max-content;
+    margin-left: 2vw;
+}
+
+.header .logo {
+    width: 13vh;
+    margin-right: 10px;
+}
+
+.header .site-name {
+    font-size: 90px;
+    font-weight: bold;
+    cursor: default;
+}
+
+.header .right {
+    display: flex;
+    width: max-content;
+    margin-right: 2vw;
+}
+
+.header .headerButton {
+    margin-right: 10px;
+    width: 5vw;
+    padding: 10px;
+    background-color: #113286;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.header .headerButton:hover {
+    background-color: #234198;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+a:hover{
+    text-decoration: none;
+    color: white;
+}
+a:any-link{
+    text-decoration: none;
+    color: white;
+}
+a:any-link:hover{
+    text-decoration: none;
+    color: white;
+}
