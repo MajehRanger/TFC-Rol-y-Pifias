@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 
 
-function ProfilePage() {
+export const  ProfilePage = () => {
     const [playerInfo, setPlayerInfo] = useState({});
 
     useEffect(() => {
@@ -27,9 +27,7 @@ function ProfilePage() {
             <h2>Profile Information</h2>
             <p>Name: {playerInfo.name}</p>
             <p>Email: {playerInfo.email}</p>
-            <button><Link to={`/update-user/${playerInfo.id}`}>Update This Profile</Link></button>
+            <button><Link to={`/update/${playerInfo.id}`}>Update This Profile</Link></button>
         </div>
     );
 }
-
-export default ProfilePage;

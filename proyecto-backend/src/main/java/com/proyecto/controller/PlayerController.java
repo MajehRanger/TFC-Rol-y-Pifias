@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.proyecto.dto.PlayerDTO;
 import com.proyecto.service.PlayerService;
+import com.proyecto.service.impl.UserDetailsServiceImpl;
 
 import lombok.AllArgsConstructor;
 
@@ -19,6 +20,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 //import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 @CrossOrigin("*")
 @RestController
@@ -26,8 +29,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RequestMapping("/api/players")
 public class PlayerController {
     
-    @Autowired
-    private PlayerService playerService;
+    private final PlayerService playerService;
+    private final UserDetailsServiceImpl userDetailsService;
 
     @GetMapping("/get/{id}")
     public ResponseEntity<PlayerDTO> getPlayerById(@PathVariable String id) {
@@ -48,7 +51,15 @@ public class PlayerController {
     public ResponseEntity<Void> createPlayer(@RequestBody PlayerDTO playerDTO) {
         playerService.createPlayer(playerDTO);
         return ResponseEntity.noContent().build();
+    }
+         @GetMapping("/adminuser/get-profile")
+    public ResponseEntity<PlayerDTO> getMyProfile(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String email = authentication.getEmail();
+        PlayerDTO response = userDetailsService.loadUserByUsername(email);
+        return  ResponseEntity.status(response.getStatusCode()).body(response);
     }*/
+    
 
     @PutMapping("/update/{id}")
     public ResponseEntity<Void> updatePlayer(@PathVariable long id, @RequestBody PlayerDTO playerDTO) {

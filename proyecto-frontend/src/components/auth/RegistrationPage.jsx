@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import UserService from '../service/UserService';
+import PlayerService from '../../services/PlayerService';
 import { useNavigate } from 'react-router-dom';
 
-function RegistrationPage() {
+export const  RegistrationPage = () => {
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -60,5 +60,3 @@ function RegistrationPage() {
         </div>
     );
 }
-
-export default RegistrationPage;

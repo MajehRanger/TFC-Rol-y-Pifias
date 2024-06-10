@@ -1,28 +1,30 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {useNavigate} from 'react-router-dom';
 import PlayerService from "../../services/PlayerService";
+import { AuthContext } from "../../App";
 
-function LoginPage(){
+export const  LoginPage = () => {
     const[email, setEmail] = useState('');
     const[password, setPassword] = useState('');
     const[error, setError] = useState('');
+    const[exito, setExito] = useState('');
     const navigate = useNavigate();
+    const {login} = useContext(AuthContext);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const playerData = await PlayerService.login(email, password);
-            if(playerData.token) {
+            const token = await PlayerService.login(email, password);
+            if(token) {
                 //coge el token de la respuesta y lo guarda en local
-                localStorage.setItem('token', userData); // o userData.token si la respuesta envia mas cosas
+                login(token);
                 //me mueve a otra pagina
-                navigate('/profile')
+                navigate('/sheets')
             }else{
                 setError(playerData.error);
             }
             
         } catch (error) {
-            console.log(error);
             setError(error)
             //Unos segundos para volver a intentarlo
             setTimeout(() =>{
@@ -32,9 +34,10 @@ function LoginPage(){
     }
 
     return(
-        <div className="login-container">
+        <div className="login-container col-4 m-2">
             <h2>Login</h2>
             {error && <p className="error-message">{error}</p>}
+            {exito && <p className="exito-message">{exito}</p>}
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="">Email:</label>
@@ -51,4 +54,3 @@ function LoginPage(){
 
 }
 
-export default LoginPage;

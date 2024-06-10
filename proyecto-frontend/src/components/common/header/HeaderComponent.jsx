@@ -1,19 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./HeaderComponent.css";
-import {Link} from 'react-router-dom';
-import PlayerService from '../../../services/PlayerService';
-
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../../App";
 
 export const HeaderComponent = () => {
-
-  const isAuthenticated = PlayerService.isAuthenticated();
+  const { token, logout } = useContext(AuthContext);
 
   const handleLogout = () => {
     const confirmLogout = window.confirm("¿Quieres cerrar la sesión?");
-    if(confirmLogout){
-      PlayerService.logout();
+    if (confirmLogout) {
+      logout();
     }
-  }
+  };
 
   return (
     <header className="header">
@@ -27,14 +25,16 @@ export const HeaderComponent = () => {
             Manuales
           </a>
         </button>
-        {isAuthenticated && (
+        {token != null && (
           <button className="headerButton">
             <Link to="/profile">Perfil</Link>
           </button>
         )}
-        {isAuthenticated && (
+        {token != null && (
           <button className="headerButton">
-            <Link to="/" onClick={handleLogout}>Salir</Link>
+            <Link to="/" onClick={handleLogout}>
+              Salir
+            </Link>
           </button>
         )}
       </div>
