@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import PlayerService from '../../services/PlayerService';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import "./login.css"
 
-export const  RegistrationPage = () => {
+export const RegistrationPage = () => {
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -19,19 +20,19 @@ export const  RegistrationPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // Call the register method from UserService
+            //Llama al metodo de PlayerService
 
             const token = localStorage.getItem('token');
             await PlayerService.register(formData, token);
 
-            // Clear the form fields after successful registration
+            // Despues de registrarse limpia los campos
             setFormData({
                 name: '',
                 email: '',
                 password: ''
             });
             alert('Usuario registrado con éxito');
-            navigate('/profile');
+            navigate('/');
 
         } catch (error) {
             console.error('Ocurrio un error al registrarse:', error);
@@ -40,23 +41,29 @@ export const  RegistrationPage = () => {
     };
 
     return (
-        <div className="auth-container">
-            <h2>Registro</h2>
-            <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label>Nombre:</label>
-                    <input type="text" name="name" value={formData.name} onChange={handleInputChange} required />
-                </div>
-                <div className="form-group">
-                    <label>Email:</label>
-                    <input type="email" name="email" value={formData.email} onChange={handleInputChange} required />
-                </div>
-                <div className="form-group">
-                    <label>Contraseña:</label>
-                    <input type="password" name="password" value={formData.password} onChange={handleInputChange} required />
-                </div>
-                <button type="submit">Registrate</button>
-            </form>
-        </div>
+        <main>
+            <div className="login-container">
+                <h2>Registro</h2>
+                <form onSubmit={handleSubmit}>
+                    <div className="form-group">
+                        <label>Nombre:</label>
+                        <input type="text" name="name" value={formData.name} onChange={handleInputChange} required />
+                    </div>
+                    <div className="form-group">
+                        <label>Email:</label>
+                        <input type="email" name="email" value={formData.email} onChange={handleInputChange} required />
+                    </div>
+                    <div className="form-group">
+                        <label>Contraseña:</label>
+                        <input type="password" name="password" value={formData.password} onChange={handleInputChange} required />
+                    </div>
+
+                    <div className="form-btns">
+                        <button type="submit" className="form-btn">Regístrate</button>
+                        <Link to="/" className="link-btn"><button className="form-btn">Inicia sesión</button></Link>
+                    </div>
+                </form>
+            </div>
+        </main>
     );
 }

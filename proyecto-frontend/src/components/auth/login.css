@@ -1,0 +1,29 @@
+main{
+    background-color: #455fbc;
+    height: 100vh;
+}
+.login-container{
+    width: 50%;
+    margin: auto;
+    border: 5px solid #113286;
+    padding: 5%;
+    background-color: white;
+}
+.form-group{
+    margin-bottom: 2vh;
+}
+
+.form-btns{
+    display: inline-flex;
+    justify-content: space-between;
+
+}
+.link-btn{
+    width: fit-content;
+}
+.form-btn{
+    color: white;
+    width: 15vw;
+    background-color: #113286;
+}
+

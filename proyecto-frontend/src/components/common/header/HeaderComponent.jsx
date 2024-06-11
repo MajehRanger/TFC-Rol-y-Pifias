@@ -14,7 +14,7 @@ export const HeaderComponent = () => {
   };
 
   return (
-    <header className="header">
+    <header>
       <div className="left">
         <img src="src\assets\img\logoDado.png" alt="Logo" className="logo" />
         <span className="site-name">Rol y Pifias</span>
