@@ -1,29 +1,3 @@
 *{
-    width: 100%;
-}
-main{
-    display: flex;
-}
-
-.aspectos{
-justify-content: center;
-
-}
-.aspectoBox{
-    width: 80%;
-    border: 1px solid black;
-    background-color: aliceblue;
-    margin-bottom: 5px;
-    align-content: center;
-    border-radius: 5px;
-    
-}
-.conceptoText, .problemaText{
-    width: 95%;
-    border: 1px solid black;
-    background-color: aliceblue;
-    margin: auto;
-    margin-bottom: 5px;
-    min-height: 100px;
-    border-radius: 5px;
+    margin: 0%;
 }

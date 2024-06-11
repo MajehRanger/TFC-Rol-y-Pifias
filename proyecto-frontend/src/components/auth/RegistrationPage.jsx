@@ -41,7 +41,7 @@ export const RegistrationPage = () => {
     };
 
     return (
-        <main>
+        <main className="login-main">
             <div className="login-container">
                 <h2>Registro</h2>
                 <form onSubmit={handleSubmit}>

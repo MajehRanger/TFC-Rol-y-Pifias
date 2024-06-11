@@ -3,6 +3,7 @@ import { AuthContext } from "../../App";
 import { HeaderComponent } from "../common/header/HeaderComponent";
 import { MenuSheets } from "./MenuSheets";
 import SheetService from "../../services/SheetService"
+import { useNavigate} from 'react-router-dom';
 
 import "./ListSheet.css";
 
@@ -10,6 +11,8 @@ export const Sheets = () => {
 
     const [sheets, setSheets] = useState([]);
     const { token } = useContext(AuthContext);
+    const navigate = useNavigate();
+    
 
     useEffect(() => {
         SheetService.allSheets(token)
@@ -21,39 +24,34 @@ export const Sheets = () => {
             });
     }, []);
 
+    const handleSheet = (sheetId) => {
+        navigate('/CharacterSheet', { state: { sheetId } });
+    };
+
+
     return (
         <>
             <HeaderComponent />
             <MenuSheets />
-            <div className="body">
-
-                <h2>Lista de Fichas</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th className="listItem listName">Nombre</th>
-                            <th className="listItem listDesc">Breve descripción</th>
-                            <th className="listButton"></th>
-                            <th className="listButton"></th>
-                        </tr>
-                    </thead>
+            <main className="main-list">
+                <div className="sheet-list-container">
+                    <div className="sheet-list-group-title">
+                        <div className="sheet-list-item">Nombre</div>
+                        <div className="sheet-list-item">Breve descripción</div>
+                        <div className="sheet-list-btn"></div>
+                        <div className="sheet-list-btn"></div>
+                    </div>
                     {sheets && // Condicional para renderizar solo si sheets no es null
                         sheets.map((sheet) => (
-                            <tbody key={sheet.id}>
-                                <tr className="rowTable">
-                                    <td className="listItem listName">{sheet.characterName}</td>
-                                    <td className="listItem listDesc">{sheet.description}</td>
-                                    <td className="listButton">
-                                        <button>editar</button>
-                                    </td>
-                                    <td className="listButton">
-                                        <button>borrar</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        ))}
-                </table>
-            </div>
+                    <div className="sheet-list-group">
+                        <div className="sheet-list-item">{sheet.characterName}</div>
+                        <div className="sheet-list-item">{sheet.description}</div>
+                        <div className="sheet-list-btn"><button onClick={() => handleSheet(sheet.id)}>F</button></div>
+                        <div className="sheet-list-btn"><button onClick={() => handleDelete(sheet.id)}>E</button></div>
+                    </div>
+                    ))}
+                </div>
+            </main>
 
 
         </>

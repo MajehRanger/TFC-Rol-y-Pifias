@@ -4,22 +4,21 @@ header {
     justify-content: space-between;
     align-items: center;
     color: #113286;
-    width: 100%;
+    width: 100vw;
     border-bottom: 1vh #113286 solid;
-    position: absolute;
-    top: 0px;
+    justify-self: start;
+    padding-left: 2vw;
+    padding-right: 2vw;
 }
 
 header .left {
     display: flex;
     align-items: flex-start;
     width: 50%;
-    margin-left: 2vw;
 }
 
 header .logo {
     width: 8vh;
-    margin-right: 10px;
 }
 
 header .site-name {
@@ -52,19 +51,22 @@ header .headerButton:hover {
     background-color: #234198;
 }
 
-a{
+a {
     text-decoration: none;
     color: white;
 }
-a:hover{
+
+a:hover {
     text-decoration: none;
     color: white;
 }
-a:any-link{
+
+a:any-link {
     text-decoration: none;
     color: white;
 }
-a:any-link:hover{
+
+a:any-link:hover {
     text-decoration: none;
     color: white;
 }
@@ -74,4 +76,4 @@ a:any-link:hover{
     header .site-name {
         display: none;
     }
-  }
+}

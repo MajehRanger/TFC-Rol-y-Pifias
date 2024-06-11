@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LoginPage } from "./components/auth/LoginPage";
 import { RegistrationPage } from "./components/auth/RegistrationPage";
 import { Sheets } from "./components/sheets/Sheets";
+import { CharacterSheet } from "./components/character/CharacterSheetComponent";
 
 export const AuthContext = createContext(null);
 
@@ -27,6 +28,7 @@ function App() {
           <Route exact path="/" element={<LoginPage />} />
           <Route exact path="/register" element={<RegistrationPage />} />
           {token != null ? [<Route key={"sheets"} exact path="/sheets" element={<Sheets />} />] : []}
+          {token != null ? [<Route key={"CharacterSheet"} exact path="/CharacterSheet" element={<CharacterSheet />} />] : []}
           <Route path='*' exact={true} element={<div>Not found</div>} />
         </Routes>
       </BrowserRouter>

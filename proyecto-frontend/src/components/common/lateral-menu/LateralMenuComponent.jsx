@@ -1,5 +1,6 @@
 import React from 'react'
-import "./LateralComponent.css";
+import "./LateralMenuComponent.css";
+import { Link } from "react-router-dom";
 
 export const LateralComponent = () => {
   return (
@@ -32,9 +33,9 @@ export const LateralComponent = () => {
                 <span>Nueva Ficha</span>
             </button>
             <button className="menu-item">
-                <i>⊞</i>
-                <span>Lista Fichas</span>
-            </button>
+            <Link to="/sheets"><i>⊞</i>
+            <span>Lista Fichas</span></Link>
+          </button>
         </div>
     </div>
   )

@@ -1,4 +1,4 @@
-.body{
+.main-list{
     text-align: center;
     width: 80%;
     margin: auto;
@@ -8,35 +8,33 @@
     padding-top: 2vh;
     padding-bottom: 2vh;
 }
-table{
+.sheet-list-container{
     background-color: white;
+    min-width: fit-content;
 }
-.rowTable:hover{
+.sheet-list-group-title{
+    display: flex;
+    background-color: #f7ead0;
+    justify-content: space-evenly;
+    font-weight: bolder;
+    font-size: x-large;
+}
+.sheet-list-group{
+    display: flex;
+    justify-content: space-between;
+}
+.sheet-list-group:hover{
     background-color: #faf8f5;
 }
-.listItem{
+.sheet-list-item{
+    width: 30%;
     padding: 2vh;
 }
-.listButton{
-    max-width: 5%;
+.sheet-list-btn{
+    width: 5%;
+    padding: 2vh;
 }
-th{
-    font-size: 30px;
-    background-color: #ffffe8;
-}
-.listButton button{
-    background-color: #113286;
-    color: white;
-}
-.listButton button:hover{
-    background-color: #234198;
-}
-.listName{
-    width: 20%;
-}
-.listDesc{
-    width: 70%;
-}
+
 
 /*---Menu Superior---*/
 nav{
@@ -46,8 +44,7 @@ nav{
     justify-content: space-evenly;
     display: flex;
     justify-content: center;
-    position: absolute;
-    top: 10vh;
+justify-self: start;
 }
 .link-btn{
     width: fit-content;
