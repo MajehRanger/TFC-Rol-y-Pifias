@@ -25,6 +25,12 @@ public class JwtTokenFilter extends OncePerRequestFilter {
     @SuppressWarnings("null")
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Methods", "GET,POST,DELETE,PUT,OPTIONS");
+        response.setHeader("Access-Control-Allow-Headers", "*");
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+
+
         String token = request.getHeader("Authorization");
             if (token == null ||  !token.startsWith("Bearer ")){
                 filterChain.doFilter(request, response);

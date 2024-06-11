@@ -7,7 +7,6 @@ class PlayerService{
         const data = {email: email, password: password};
         try{
             const response = await axios.post(`${PlayerService.BASE_URL}/login`, data);
-            console.log(response.data);
             return response.data;
         }catch(error){
             throw error;
