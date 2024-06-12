@@ -3,7 +3,6 @@ package com.proyecto.model;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.proyecto.model.Spell;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,7 +14,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -56,9 +54,9 @@ public class CharacterSheet {
     @JoinColumn(name = "wand_id", referencedColumnName = "id")
     private Wand wand;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
-        name = "character_spells",
+        name = "character_spells_list",
         joinColumns = @JoinColumn(name = "charactersheet_id"),
         inverseJoinColumns = @JoinColumn(name = "spell_id")
     )

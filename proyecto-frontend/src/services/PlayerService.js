@@ -6,7 +6,7 @@ class PlayerService{
     static async login(email, password){
         const data = {email: email, password: password};
         try{
-            const response = await axios.post(`${BASE_URL}/login`, data);
+            const response = await axios.post(`${BASE_URL}login`, data);
             return response.data;
         }catch(error){
             throw error;
@@ -15,7 +15,7 @@ class PlayerService{
 
     static async register(userData, token){
         try{
-            const response = await axios.post(`${BASE_URL}/register`, userData, 
+            const response = await axios.post(`${BASE_URL}register`, userData, 
             {
                 headers: {Authorization: `Bearer ${token}`}
             })
@@ -27,7 +27,7 @@ class PlayerService{
 
     static async getUserById(userId, token){
         try{
-            const response = await axios.get(`${BASE_URL}/api/players/get/${userId}`, 
+            const response = await axios.get(`${BASE_URL}api/players/get/${userId}`, 
             {
                 headers: {Authorization: `Bearer ${token}`}
             })
@@ -39,7 +39,7 @@ class PlayerService{
 
     static async getYourProfile(token){
         try{
-            const response = await axios.get(`${BASE_URL}/api/players/get-profile`, 
+            const response = await axios.get(`${BASE_URL}api/players/get-profile`, 
             {
                 headers: {Authorization: `Bearer ${token}`}
             })
@@ -51,7 +51,7 @@ class PlayerService{
 
     static async deleteUser(userId, token){
         try{
-            const response = await axios.delete(`${BASE_URL}/api/players/delete/${userId}`, 
+            const response = await axios.delete(`${BASE_URL}api/players/delete/${userId}`, 
             {
                 headers: {Authorization: `Bearer ${token}`}
             })
@@ -64,7 +64,7 @@ class PlayerService{
 
     static async updateUser(userId, userData, token){
         try{
-            const response = await axios.put(`${BASE_URL}/api/players/update/${userId}`, userData,
+            const response = await axios.put(`${BASE_URL}api/players/update/${userId}`, userData,
             {
                 headers: {Authorization: `Bearer ${token}`}
             })

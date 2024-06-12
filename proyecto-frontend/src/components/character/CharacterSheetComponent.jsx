@@ -35,6 +35,9 @@ export const CharacterSheet = () => {
                         <div>Puntos Destino: {sheet.pd}</div>
                         <div>Puntos Experiencia: {sheet.px}</div>
                         <div>Descripción: {sheet.description}</div>
+                        <div>Varita:
+                            <div></div>
+                        </div>
                     </div>
                 </div>
             </main>

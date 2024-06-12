@@ -12,6 +12,7 @@ export const Sheets = () => {
     const [sheets, setSheets] = useState([]);
     const { token } = useContext(AuthContext);
     const navigate = useNavigate();
+    console.log(token);
     
 
     useEffect(() => {
@@ -43,7 +44,7 @@ export const Sheets = () => {
                     </div>
                     {sheets && // Condicional para renderizar solo si sheets no es null
                         sheets.map((sheet) => (
-                    <div className="sheet-list-group">
+                    <div className="sheet-list-group" key={sheet.id}>
                         <div className="sheet-list-item">{sheet.characterName}</div>
                         <div className="sheet-list-item">{sheet.description}</div>
                         <div className="sheet-list-btn"><button onClick={() => handleSheet(sheet.id)}>F</button></div>

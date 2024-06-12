@@ -13,7 +13,7 @@ import org.mapstruct.Named;
 import com.proyecto.dto.CharacterSheetDTO;
 import com.proyecto.model.CharacterSheet;
 
-@Mapper(componentModel = "spring", uses = { EstilosMapper.class })
+@Mapper(componentModel = "spring", uses = { EstilosMapper.class, SpellMapper.class})
 public interface CharacterSheetMapper {
 
     @Mapping(target="player", expression = "java(Long.valueOf(sheet.getPlayer().getId()).intValue())")

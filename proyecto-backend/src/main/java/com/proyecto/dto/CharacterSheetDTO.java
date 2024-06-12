@@ -22,7 +22,7 @@ public class CharacterSheetDTO {
     private EstilosDTO estilos;
     private int player;
     private WandDTO wand;
-    private List<Spell> spells;
+    private List<SpellDTO> spells;
     private String concepto;
     private String problema;
     private List<String> aspectos;
