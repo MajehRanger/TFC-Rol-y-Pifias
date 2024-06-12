@@ -1,7 +1,9 @@
 package com.proyecto.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.proyecto.model.Spell;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,7 +12,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -47,7 +52,44 @@ public class CharacterSheet {
     @JoinColumn(name = "estilos_id", referencedColumnName = "id")
     private Estilos estilos;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "wand_id", referencedColumnName = "id")
     private Wand wand;
+
+    @ManyToMany
+    @JoinTable(
+        name = "character_spells",
+        joinColumns = @JoinColumn(name = "charactersheet_id"),
+        inverseJoinColumns = @JoinColumn(name = "spell_id")
+    )
+    @Column(name = "character_spells")
+    private List<Spell> spells;
+
+    @Column(name = "character_concepto")
+    private String concepto;
+
+    @Column(name = "character_problema")
+    private String problema;
+
+    @Column(name = "character_aspectos")
+    private List<String> aspectos;
+
+    @Column(name = "character_proezas")
+    private List<String> proezas;
+ 
+    @Column(name = "character_notes")
+    private List<String> notes;
+
+    @Column(name = "character_inventory")
+    private List<String> inventory;
+
+    @Column(name = "character_phyStress")
+    private Integer physicalStress;
+
+    @Column(name = "character_menStress")
+    private Integer mentalStress;
+
+    @Column(name = "character_consequences")
+    private List<String> consequences;
+
 }
