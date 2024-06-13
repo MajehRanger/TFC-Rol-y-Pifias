@@ -3,9 +3,6 @@ package com.proyecto.dto;
 
 import java.util.List;
 
-import com.proyecto.model.Spell;
-
-import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

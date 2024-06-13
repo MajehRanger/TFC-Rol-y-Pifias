@@ -1,10 +1,13 @@
 import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../../App";
-import { HeaderComponent } from "../common/header/HeaderComponent";
-import {LateralComponent} from "../common/lateral-menu/LateralMenuComponent"
+import { HeaderComponent } from "../common/HeaderComponent";
 import { useLocation } from "react-router-dom";
-import SheetService from "../../services/SheetService"
-import "./CharacterSheet.css"
+import SheetService from "../../services/SheetService";
+import { LateralSheetsMenu } from "../common/LateralSheetMenu";
+import { EstilosComponent } from "./estilos/EstilosComponent";
+import { AspectosComponent } from "./aspectos/AspectosComponent";
+import { ProezasComponent } from "./proezas/ProezasComponent";
+import { WandComponent } from "./wands/WandComponent";
 
 export const CharacterSheet = () => {
 
@@ -27,17 +30,66 @@ export const CharacterSheet = () => {
     return (
         <>
             <HeaderComponent />
-            <main className="sheet-main">
-                <LateralComponent />
-                <div className="sheet-container">
-                    <div className="character-data">
-                        <div>Nombre: {sheet.characterName}</div>
-                        <div>Puntos Destino: {sheet.pd}</div>
-                        <div>Puntos Experiencia: {sheet.px}</div>
-                        <div>Descripción: {sheet.description}</div>
-                        <div>Varita:
-                            <div></div>
+            <main className="sheet-data-main">
+                <LateralSheetsMenu />
+                <div className="sheet-data-container">
+                    
+                        <div className="sheet-data">
+                        <div>
+                            <div className="sheet-data-stress">
+                                <h2>Estrés</h2>
+                                <div className="data-stress">
+                                    <label htmlFor="">Físico</label>
+                                    <input type="checkbox" onChange={() => handleCheckFhys(0)} />
+                                    <input type="checkbox" onChange={() => handleCheckFhys(1)} />
+                                    <input type="checkbox" onChange={() => handleCheckFhys(2)} />
+                                    <input type="checkbox" onChange={() => handleCheckFhys(3)} />
+                                </div>
+                                <div className="data-stress">
+                                    <label htmlFor="">Mental</label>
+                                    <input type="checkbox" onChange={() => handleCheckMen(0)} />
+                                    <input type="checkbox" onChange={() => handleCheckMen(1)} />
+                                    <input type="checkbox" onChange={() => handleCheckMen(2)} />
+                                    <input type="checkbox" onChange={() => handleCheckMen(3)} />
+                                </div>
+                            </div>
+                            <div className="sheet-data-consecuences">
+                                <h2>Consecuencias</h2>
+                                <div className="data-consecuences">
+                                    <label htmlFor=""><span>2</span> Leve</label>
+                                    <input type="text" />
+                                </div>
+                                <div className="data-consecuences">
+                                    <label htmlFor=""><span>2</span> Leve</label>
+                                    <input type="text" />
+                                </div>
+                                <div className="data-consecuences">
+                                    <label htmlFor=""><span>4</span> Moderada</label>
+                                    <input type="text" />
+                                </div>
+                                <div className="data-consecuences">
+                                    <label htmlFor=""><span>6</span> Severa</label>
+                                    <input type="text" />
+                                </div>
+                                <div className="data-consecuences">
+                                    <label htmlFor=""><span>8</span> Extrema</label>
+                                    <input type="text" />
+                                </div>
+                            </div>
+                            <EstilosComponent />
                         </div>
+                        <div>
+                            <AspectosComponent />
+                            <ProezasComponent />
+                            <WandComponent />
+                        </div>
+
+                        <div>Descripción: {sheet.description}</div>
+                        <div>Estrés Físico: {sheet.physicalStress}</div>
+                        <div>Estrés Mental: {sheet.mentalStress}</div>
+                        <div>Consecuencias: </div>
+                        <div>Notas: </div>
+
                     </div>
                 </div>
             </main>

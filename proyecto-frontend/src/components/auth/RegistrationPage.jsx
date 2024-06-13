@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import PlayerService from '../../services/PlayerService';
 import { useNavigate, Link } from 'react-router-dom';
-import "./login.css"
 
 export const RegistrationPage = () => {
     const navigate = useNavigate();
@@ -45,22 +44,22 @@ export const RegistrationPage = () => {
             <div className="login-container">
                 <h2>Registro</h2>
                 <form onSubmit={handleSubmit}>
-                    <div className="form-group">
+                    <div className="login-form-group">
                         <label>Nombre:</label>
                         <input type="text" name="name" value={formData.name} onChange={handleInputChange} required />
                     </div>
-                    <div className="form-group">
+                    <div className="login-form-group">
                         <label>Email:</label>
                         <input type="email" name="email" value={formData.email} onChange={handleInputChange} required />
                     </div>
-                    <div className="form-group">
+                    <div className="login-form-group">
                         <label>Contraseña:</label>
                         <input type="password" name="password" value={formData.password} onChange={handleInputChange} required />
                     </div>
 
-                    <div className="form-btns">
-                        <button type="submit" className="form-btn">Regístrate</button>
-                        <Link to="/" className="link-btn"><button className="form-btn">Inicia sesión</button></Link>
+                    <div className="login-form-btns">
+                        <div><button type="submit" className="login-form-btn">Regístrate</button></div>
+                        <Link to="/" className="login-form-link"><button className="login-form-btn">Inicia sesión</button></Link>
                     </div>
                 </form>
             </div>

@@ -1,3 +1,575 @@
-*{
-    margin: 0%;
+* {
+    font-family: 'Optima ';
+
+}
+
+/*Auth*/
+.login-main {
+    background-color: #455fbc;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.login-container {
+    width: 50vw;
+    margin: auto;
+    border: 5px solid #113286;
+    padding: 5%;
+    background-color: white;
+}
+
+.login-container h2 {
+    text-align: center;
+}
+
+.login-form-group {
+    margin-bottom: 2vh;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 2%;
+}
+
+.login-form-group label,
+input {
+    width: 100%;
+}
+
+.login-form-btns {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+
+}
+
+.login-form-btn {
+    color: white;
+    width: 15vw;
+    background-color: #113286;
+    min-height: fit-content;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.login-form-btn:hover {
+    color: white;
+    background-color: #234198;
+    border: none;
+}
+
+.login-form-link {
+    width: 15vw;
+    text-decoration: none;
+    /* Para quitar el subrayado predeterminado del enlace */
+    color: inherit;
+}
+
+.login-form-link:hover {
+    text-decoration: none;
+    color: inherit;
+    border: none;
+    width: 15vw;
+}
+
+/*common*/
+header {
+    display: flex;
+    height: 10vh;
+    justify-content: space-between;
+    align-items: center;
+    color: #113286;
+    width: 100vw;
+    border-bottom: 1vh #113286 solid;
+    justify-self: start;
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
+.header-left {
+    display: flex;
+    align-items: flex-start;
+    max-width: 50%;
+    width: fit-content;
+    text-decoration: none;
+    color: inherit;
+}
+
+.header-left:hover {
+    color: inherit;
+}
+
+.header-logo {
+    width: 8vh;
+}
+
+.header-name {
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.header-right {
+    display: flex;
+    justify-content: end;
+    min-width: fit-content;
+    width: 50%;
+    margin-right: 2vw;
+}
+
+.header-btn {
+    min-width: fit-content;
+    width: 100%;
+    background-color: #113286;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.5s;
+    border-radius: 8px;
+}
+
+.header-btn:hover {
+    color: white;
+    background-color: #234198;
+    border: none;
+}
+
+.header-link {
+    margin-left: 2vw;
+    width: fit-content;
+    min-width: max-content;
+    text-decoration: none;
+    color: inherit;
+}
+
+.header-link:hover {
+    text-decoration: none;
+    color: inherit;
+    border: none;
+}
+
+.lateral-menu-container {
+    min-width: max-content;
+    width: 12vw;
+    min-height: max-content;
+    height: 90vh;
+    background-color: #455fbc;
+    display: flex;
+    flex-direction: column;
+    padding: 1vh;
+    border-right: 1vh #113286 solid;
+}
+
+.lateral-menu-up,
+.lateral-menu-down {
+    display: flex;
+    flex-direction: column;
+}
+
+.lateral-menu-btns {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+
+}
+
+.lateral-data {
+    text-align: center;
+    padding-bottom: 1vh;
+}
+
+.lateral-data img {
+    width: 12vw;
+}
+
+.lateral-data-points {
+    display: inline-flex;
+}
+
+.lateral-data-points h5 {
+    width: fit-content;
+    margin: 2px;
+
+}
+
+.lateral-btn {
+    width: 100%;
+    background-color: #113286;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.5s;
+    margin: auto;
+    margin-top: 2%;
+}
+
+.lateral-btn:hover {
+    color: white;
+    background-color: #234198;
+    border: none;
+}
+
+.lateral-link {
+    width: fit-content;
+    min-width: max-content;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+}
+
+.lateral-link:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn-icon {
+    align-self: center;
+    margin-bottom: 2px;
+    font-size: large;
+}
+
+/*---Welcome---*/
+.welcome-container {
+    background-color: #ffffe8;
+    height: 90vh;
+    padding: 2vh;
+}
+
+.welcome-menu {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
+}
+
+.welcome-link {
+    min-width: max-content;
+    text-decoration: none;
+    color: inherit;
+    width: fit-content;
+}
+
+.welcome-link:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.welcome-btn {
+    width: 15vw;
+    background-color: #113286;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.5s;
+    border-radius: 8px;
+}
+
+.welcome-btn:hover {
+    color: white;
+    background-color: #234198;
+    border: none;
+}
+
+
+
+/*Sheets*/
+.main-sheet-list {
+    text-align: center;
+    width: 100%;
+    height: 82vh;
+    background-color: #ffffe8;
+    border-radius: 10px;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+
+.sheet-list-container {
+    width: 90%;
+    margin: auto;
+    background-color: white;
+    min-width: fit-content;
+}
+
+.sheet-list-group-title {
+    display: flex;
+    background-color: #f7ead0;
+    justify-content: space-evenly;
+    font-weight: bolder;
+    font-size: x-large;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.sheet-list-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sheet-list-group:hover {
+    background-color: #faf8f5;
+}
+
+.sheet-list-item {
+    width: 30%;
+    padding: 2vh;
+    align-content: center;
+}
+
+.sheet-list-btn {
+    color: white;
+    width: fit-content;
+    background-color: #113286;
+    border-radius: 8px;
+    border: none;
+    margin-left: 2%;
+}
+
+.sheet-list-btn:hover {
+    color: white;
+    background-color: #234198;
+    border: none;
+}
+
+
+/*---Menus Superiores---*/
+nav {
+    width: 100vw;
+    height: max-content;
+    background-color: #455fbc;
+    padding: 2vh;
+    justify-content: space-evenly;
+    display: flex;
+    margin: auto;
+}
+
+.menu-btn {
+    color: white;
+    width: 15vw;
+    background-color: #113286;
+    min-height: fit-content;
+    height: 100%;
+    border-radius: 8px;
+    border: none;
+}
+
+.menu-btn:hover {
+    color: white;
+    background-color: #234198;
+    border: none;
+}
+
+.menu-link {
+    width: 15vw;
+    text-decoration: none;
+    /* Para quitar el subrayado predeterminado del enlace */
+    color: inherit;
+    border: none;
+}
+
+.menu-link:hover {
+    text-decoration: none;
+    color: inherit;
+    border: none;
+    width: 15vw;
+}
+
+/*---------------CharacterSheet------------*/
+.sheet-data-main {
+    display: flex;
+    height: 90vh;
+}
+
+.sheet-data-main h2 {
+    font-weight: bolder;
+}
+
+.sheet-data-main h3 {
+    font-weight: bolder;
+}
+
+.sheet-data-main h5 {
+    font-weight: bolder;
+}
+
+.sheet-data-container {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    text-transform: uppercase;
+    background-color: #ffffe8;
+
+}
+
+.sheet-data {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.sheet-data-stress {
+    margin-top: 1vh;
+    border: 1px solid black;
+    width: 95%;
+    padding: 1vh;
+    background-color: white;
+}
+
+.data-stress {
+    display: flex;
+}
+
+.data-stress input,
+label {
+    width: 20%;
+}
+
+.data-stress input {
+    height: 20px;
+}
+
+.sheet-data-consecuences {
+    margin-top: 1vh;
+    border: 1px solid black;
+    width: 95%;
+    padding: 1vh;
+    background-color: white;
+}
+
+.data-consecuences {
+    display: inline-flex;
+    width: 100%;
+    margin-bottom: 1%;
+}
+
+.data-consecuences label {
+    display: flex;
+    width: 40%;
+    min-width: fit-content
+}
+
+.data-consecuences label span {
+    margin-right: 3px;
+    margin-left: 3px;
+    border: 1px solid black;
+    text-align: center;
+    width: 2vw;
+}
+
+.data-consecuences input {
+    width: 60%;
+}
+
+/*Estilos*/
+.sheet-data-estilos {
+    margin-top: 1vh;
+    border: 1px solid black;
+    width: 95%;
+    padding: 1vh;
+    background-color: white;
+}
+
+.estilo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1%;
+}
+
+.estilo-name {
+    width: 50%;
+    min-width: fit-content;
+    align-content: center;
+}
+
+.estilo-value {
+    width: 10%;
+    min-width: fit-content;
+    align-content: center;
+}
+
+.estilo button {
+    width: fit-content;
+    min-width: fit-content;
+    color: white;
+    background-color: #113286;
+    height: fit-content;
+    border-radius: 8px;
+    border: none;
+    font-size: large;
+    padding: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+    justify-content: center;
+    align-content: center;
+}
+
+.estilo button:hover {
+    color: white;
+    background-color: #234198;
+    border: none;
+}
+
+/*Aspectos*/
+.sheet-data-aspectos {
+    margin-top: 1vh;
+    border: 1px solid black;
+    width: 95%;
+    padding: 1vh;
+    background-color: white;
+}
+
+.aspecto-box {
+    margin-bottom: 2%;
+}
+
+.aspecto {
+    border: 1px solid black;
+    min-height: 8vh;
+}
+
+/*Proezas*/
+.sheet-data-proezas {
+    margin-top: 1vh;
+    border: 1px solid black;
+    width: 95%;
+    padding: 1vh;
+    background-color: white;
+}
+
+.proeza {
+    border: 1px solid black;
+}
+
+
+/*Wands*/
+.sheet-data-wand {
+    margin-top: 1vh;
+    border: 1px solid black;
+    width: 95%;
+    padding: 1vh;
+    background-color: white;
+}
+
+.data-wand {
+    margin-bottom: 2%;
+}
+
+.wand-info {
+    border: 1px solid black;
+    padding: 1vh;
+}
+
+.wand-info div {
+    margin-bottom: 1%;
+}
+
+
+/* Media Query para pantallas pequeñas */
+
+/*common*/
+@media only screen and (max-width: 900px) {
+    header .site-name {
+        display: none;
+    }
 }

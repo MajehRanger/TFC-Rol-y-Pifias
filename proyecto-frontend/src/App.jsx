@@ -3,8 +3,10 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LoginPage } from "./components/auth/LoginPage";
 import { RegistrationPage } from "./components/auth/RegistrationPage";
-import { Sheets } from "./components/sheets/Sheets";
+import { SheetsList } from "./components/sheets/SheetsList";
 import { CharacterSheet } from "./components/character/CharacterSheetComponent";
+import { WelcomeComponent } from "./components/welcome/WelcomeComponent";
+import { ProfileComponent } from "./components/player/ProfileComponent";
 
 export const AuthContext = createContext(null);
 
@@ -27,7 +29,9 @@ function App() {
         <Routes>
           <Route exact path="/" element={<LoginPage />} />
           <Route exact path="/register" element={<RegistrationPage />} />
-          {token != null ? [<Route key={"sheets"} exact path="/sheets" element={<Sheets />} />] : []}
+          {token != null ? [<Route key={"welcome"} exact path="/welcome" element={<WelcomeComponent />} />] : []}
+          {token != null ? [<Route key={"profile"} exact path="/profile" element={<ProfileComponent />} />] : []}
+          {token != null ? [<Route key={"sheets"} exact path="/sheets" element={<SheetsList />} />] : []}
           {token != null ? [<Route key={"CharacterSheet"} exact path="/CharacterSheet" element={<CharacterSheet />} />] : []}
           <Route path='*' exact={true} element={<div>Not found</div>} />
         </Routes>
@@ -35,25 +39,4 @@ function App() {
     </AuthContext.Provider>
   );
 }
-
-/*
-<AuthContext.Provider value={{token: token, login: login, logout: logout}}>
-      <BrowserRouter>
-        <HeaderComponent />
-        <main>
-          <LateralComponent />
-          <div>
-              <Routes>
-                <Route exact path="/" element={<LoginPage />} />
-                <Route exact path="/register" element={<RegistrationPage />} />
-                {
-                  token != null ? [<Route key={"sheets"} exact path="/sheets" element={<RegistrationPage />} />] : []
-                }
-                <Route path='*' exact={true} element={<div>Not found</div>} />
-              </Routes>
-          </div>
-        </main>
-      </BrowserRouter>
-      </AuthContext.Provider>
-*/
 export default App;
