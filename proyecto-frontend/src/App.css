@@ -334,10 +334,10 @@ header {
 
 /*---Menus Superiores---*/
 nav {
-    width: 100vw;
+    width: 100%;
     height: max-content;
     background-color: #455fbc;
-    padding: 2vh;
+    padding: 1vh;
     justify-content: space-evenly;
     display: flex;
     margin: auto;

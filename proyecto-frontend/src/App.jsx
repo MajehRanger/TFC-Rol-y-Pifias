@@ -5,6 +5,7 @@ import { LoginPage } from "./components/auth/LoginPage";
 import { RegistrationPage } from "./components/auth/RegistrationPage";
 import { SheetsList } from "./components/sheets/SheetsList";
 import { CharacterSheet } from "./components/character/CharacterSheetComponent";
+import { EditCharacterSheet } from "./components/character/EditCharacterSheet";
 import { WelcomeComponent } from "./components/welcome/WelcomeComponent";
 import { ProfileComponent } from "./components/player/ProfileComponent";
 
@@ -33,6 +34,7 @@ function App() {
           {token != null ? [<Route key={"profile"} exact path="/profile" element={<ProfileComponent />} />] : []}
           {token != null ? [<Route key={"sheets"} exact path="/sheets" element={<SheetsList />} />] : []}
           {token != null ? [<Route key={"CharacterSheet"} exact path="/CharacterSheet" element={<CharacterSheet />} />] : []}
+          {token != null ? [<Route key={"EditCharacterSheet"} exact path="/CharacterSheet-edit" element={<EditCharacterSheet />} />] : []}
           <Route path='*' exact={true} element={<div>Not found</div>} />
         </Routes>
       </BrowserRouter>

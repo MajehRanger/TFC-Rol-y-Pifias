@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../App";
 import { HeaderComponent } from "../common/HeaderComponent";
 import { useLocation } from "react-router-dom";
@@ -8,6 +9,9 @@ import { EstilosComponent } from "./estilos/EstilosComponent";
 import { AspectosComponent } from "./aspectos/AspectosComponent";
 import { ProezasComponent } from "./proezas/ProezasComponent";
 import { WandComponent } from "./wands/WandComponent";
+import { SpellsComponent } from "./spells/SpellsComponent";
+import { DataSheetComponent } from "./sections/DataSheet";
+
 
 export const CharacterSheet = () => {
 
@@ -26,15 +30,33 @@ export const CharacterSheet = () => {
             });
     }, []);
 
+    const handleSheet = (sheetId) => {
+        navigate('/CharacterSheet-edit', { state: { sheetId } });
+    };
 
+    console.log(sheet.id);
     return (
         <>
             <HeaderComponent />
             <main className="sheet-data-main">
                 <LateralSheetsMenu />
                 <div className="sheet-data-container">
-                    
-                        <div className="sheet-data">
+                    <nav>
+                        {sheet &&
+                        
+                            <Link to="/CharacterSheet-edit" className="menu-link" onClick={() => handleSheet(sheet.id)}>
+                                <button className="menu-btn" onClick={() => handleSheet(sheet.id)}>Editar ficha</button>
+                            </Link>}
+                    </nav>
+                    <DataSheetComponent />
+                </div>
+            </main>
+        </>
+    )
+
+
+    /*
+    <div className="sheet-data">
                         <div>
                             <div className="sheet-data-stress">
                                 <h2>Estrés</h2>
@@ -82,6 +104,7 @@ export const CharacterSheet = () => {
                             <AspectosComponent />
                             <ProezasComponent />
                             <WandComponent />
+                            <SpellsComponent />
                         </div>
 
                         <div>Descripción: {sheet.description}</div>
@@ -91,8 +114,5 @@ export const CharacterSheet = () => {
                         <div>Notas: </div>
 
                     </div>
-                </div>
-            </main>
-        </>
-    )
+    */
 }
