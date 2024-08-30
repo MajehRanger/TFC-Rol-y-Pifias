@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 import SheetService from "../../services/SheetService";
 import { FaListAlt, FaMagic, FaRegStickyNote, FaStar, FaUserPlus, FaAddressCard } from "react-icons/fa";
 
-export const LateralSheetsMenu = () => {
+export const LateralSheetsMenu = ({ onMenuItemClick }) => {
 
     const [sheet, setSheet] = useState([]);
     const { token } = useContext(AuthContext);
@@ -20,7 +20,28 @@ export const LateralSheetsMenu = () => {
             .catch((error) => {
                 console.error(error);
             });
-    }, []);
+    }, [token, sheetId]);
+
+
+    const [activeButton, setActiveButton] = useState({
+        data: true,
+        estilos: false,
+        spells: false,
+        notes: false,
+    });
+
+    const handleButtonClick = (buttonName) => {
+        setActiveButton({
+            data: buttonName === 'data',
+            estilos: buttonName === 'estilos',
+            spells: buttonName === 'spells',
+            notes: buttonName === 'notes',
+        });
+
+        if (onMenuItemClick) {
+            onMenuItemClick(buttonName);
+        }
+    };
 
     return (
         <div className="lateral-menu-container">
@@ -34,22 +55,34 @@ export const LateralSheetsMenu = () => {
             </div>
             <div className="lateral-menu-btns">
                 <div className="lateral-menu-up">
-                    <Link className="lateral-link" to="/data">
-                        <button className="lateral-btn"><FaAddressCard /> Datos</button></Link>
-                    <Link className="lateral-link" to="/estilos">
-                        <button className="lateral-btn"><FaStar /> Estilos</button></Link>
-                    <Link className="lateral-link" to="/spells">
-                        <button className="lateral-btn"><FaMagic /> Hechizos</button></Link>
-                    <Link className="lateral-link" to="/notes">
-                        <button className="lateral-btn"><FaRegStickyNote /> Notas</button></Link>
+                    <button
+                        className={`lateral-btn ${activeButton.data ? 'active' : ''}`}
+                        onClick={() => handleButtonClick('data', '/data')}>
+                        <FaAddressCard /> Datos
+                    </button>
+                    <button
+                        className={`lateral-btn ${activeButton.estilos ? 'active' : ''}`}
+                        onClick={() => handleButtonClick('estilos', '/estilos')}>
+                        <FaStar /> Estilos
+                    </button>
+                    <button
+                        className={`lateral-btn ${activeButton.spells ? 'active' : ''}`}
+                        onClick={() => handleButtonClick('spells', '/spells')}>
+                        <FaMagic /> Hechizos
+                    </button>
+                    <button
+                        className={`lateral-btn ${activeButton.notes ? 'active' : ''}`}
+                        onClick={() => handleButtonClick('notes', '/notes')}>
+                        <FaRegStickyNote /> Notas
+                    </button>
                 </div>
             </div>
             <div className="lateral-menu-down">
-                <Link className="lateral-link" to="/new-sheet">
-                    <button className="lateral-btn"><FaUserPlus /> Nueva Fichas</button></Link>
-                <Link className="lateral-link" to="/sheets">
-                    <button className="lateral-btn"><FaListAlt /> Lista Fichas</button></Link>
+                
+                <Link className="lateral-link" to="/sheets" onClick={() => handleButtonClick('sheets')}>
+                    <button className={`lateral-btn ${activeButton.sheets ? 'active' : ''}`}><FaListAlt /> Lista Fichas</button>
+                </Link>
             </div>
         </div>
-    )
-}
+    );
+};

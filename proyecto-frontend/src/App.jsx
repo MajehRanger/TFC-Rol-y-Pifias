@@ -34,7 +34,7 @@ function App() {
           {token != null ? [<Route key={"profile"} exact path="/profile" element={<ProfileComponent />} />] : []}
           {token != null ? [<Route key={"sheets"} exact path="/sheets" element={<SheetsList />} />] : []}
           {token != null ? [<Route key={"CharacterSheet"} exact path="/CharacterSheet" element={<CharacterSheet />} />] : []}
-          {token != null ? [<Route key={"EditCharacterSheet"} exact path="/CharacterSheet-edit" element={<EditCharacterSheet />} />] : []}
+          {token != null ? [<Route key={"NewSheet"} exact path="/newSheet" element={<EditCharacterSheet />} />] : []}
           <Route path='*' exact={true} element={<div>Not found</div>} />
         </Routes>
       </BrowserRouter>
