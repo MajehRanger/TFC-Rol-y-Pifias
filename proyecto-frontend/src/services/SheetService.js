@@ -50,7 +50,49 @@ class SheetService {
         }
     }
 
+    static async getAllWandCores(token) {
+        try {
+            const response = await axios.get(`${BASE_URL}core/getall`, {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+            return response.data;
+        } catch (error) {
+            throw error;
+        }
+    }
 
+    static async getAllWandWoods(token) {
+        try {
+            const response = await axios.get(`${BASE_URL}wood/getall`, {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+            return response.data;
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    static async getWandCoreDetails(token, coreId) {
+        try {
+            const response = await axios.get(`${BASE_URL}core/get/${coreId}`, {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+            return response.data;
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    static async getWandWoodDetails(token, woodId) {
+        try {
+            const response = await axios.get(`${BASE_URL}wood/get/${woodId}`, {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+            return response.data;
+        } catch (error) {
+            throw error;
+        }
+    }
 
 }
 

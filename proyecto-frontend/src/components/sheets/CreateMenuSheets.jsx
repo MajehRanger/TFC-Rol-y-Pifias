@@ -5,7 +5,7 @@ export const CreateMenuSheets = () => {
     return (
         <>
         <nav>
-        <Link to="/new-sheet" className="menu-link"><button className="menu-btn">Nueva Ficha</button></Link>
+        <Link to="/newSheet" className="menu-link"><button className="menu-btn">Nueva Ficha</button></Link>
         </nav>
         </>
     );

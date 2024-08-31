@@ -1,16 +1,18 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { AuthContext } from "../../App";
 import { HeaderComponent } from "../common/HeaderComponent";
 import SheetService from "../../services/SheetService";
 import { LateralSheetsMenu } from "../common/LateralSheetMenu";
-import { DataSheetComponent } from "./sections/DataSheet";
+import { DataSheetComponent } from "./sheetData/DataSheet";
 import { EstilosComponent } from "./estilos/EstilosComponent";
 import { EditEstilosComponent } from "./estilos/EditEstilosComponent";
 import { SpellsComponent } from "./spells/SpellsComponent";
 import { NotesComponent } from "./notes/NotesComponent";
 import { EditNotesComponent } from "./notes/EditNotesComponent";
 import { EditSpellsComponent } from "./spells/EditSpellsComponent";
+import { EditDataSheetComponent } from "./sheetData/EditDataSheetComponent";
+import { EditLateralSheetsMenu } from "../common/EditLateralSheetMenu";
 
 export const CharacterSheet = () => {
     const [sheet, setSheet] = useState({});
@@ -19,7 +21,6 @@ export const CharacterSheet = () => {
     const { sheetId } = location.state || {};
     const [activeComponent, setActiveComponent] = useState('data');
     const [isEditing, setIsEditing] = useState(false);
-    const navigate = useNavigate();
 
     useEffect(() => {
         if (token && sheetId) {
@@ -40,7 +41,6 @@ export const CharacterSheet = () => {
     const handleSave = () => {
         SheetService.updateSheet(token, sheetId, sheet)
             .then(() => {
-                alert("Cambios guardados");
                 setIsEditing(false);
             })
             .catch((error) => {
@@ -49,18 +49,26 @@ export const CharacterSheet = () => {
     };
 
     const handleChange = (field, value) => {
-        setSheet((prevSheet) => {
-            const updatedSheet = {
-                ...prevSheet,
-                [field]: value,
-            };
+        setSheet(prevSheet => {
+            // Desglosa el campo por el delimitador '.'
+            const keys = field.split('.');
+            let updatedSheet = { ...prevSheet };
+
+            if (keys.length === 1) {
+                updatedSheet[keys[0]] = value;
+            } else {
+                updatedSheet = {
+                    ...prevSheet,
+                    [keys[0]]: {
+                        ...prevSheet[keys[0]],
+                        [keys[1]]: value
+                    }
+                };
+            }
+
             return updatedSheet;
         });
     };
-    
-    useEffect(() => {
-
-    }, [sheet]);
 
     const handleCancel = () => {
         setIsEditing(false);
@@ -74,7 +82,15 @@ export const CharacterSheet = () => {
         <>
             <HeaderComponent />
             <main className="sheet-data-main">
-                <LateralSheetsMenu onMenuItemClick={handleMenuItemClick} />
+                {isEditing ? (
+                    <EditLateralSheetsMenu
+                        onMenuItemClick={handleMenuItemClick}
+                        sheet={sheet}
+                        onChange={handleChange}
+                    />
+                ) : (
+                    <LateralSheetsMenu onMenuItemClick={handleMenuItemClick} />
+                )}
                 <div className="sheet-data-container">
                     <nav>
                         {isEditing ? (
@@ -92,7 +108,7 @@ export const CharacterSheet = () => {
                     </nav>
                     {isEditing ? (
                         <>
-                            {activeComponent === 'data' && <DataSheetComponent sheet={sheet} onChange={handleChange} />}
+                            {activeComponent === 'data' && <EditDataSheetComponent sheet={sheet} onChange={handleChange} />}
                             {activeComponent === 'estilos' && <EditEstilosComponent sheet={sheet} onChange={handleChange} />}
                             {activeComponent === 'spells' && <EditSpellsComponent sheet={sheet} onChange={handleChange} />}
                             {activeComponent === 'notes' && <EditNotesComponent sheet={sheet} onChange={handleChange} />}

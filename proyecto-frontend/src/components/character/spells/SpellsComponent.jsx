@@ -49,11 +49,11 @@ export const SpellsComponent = () => {
             <div className="sheet-data-spells">
                 <h2>Hechizos</h2>
                 <div className="spell-list-group">
-                    <div className="spell-list-item"><h3>Nombre</h3></div>
-                    <div className="spell-list-item"><h3>Dificultad</h3></div>
-                    <div className="spell-list-item"><h3>Efecto</h3></div>
-                    <div className="spell-list-item"><h3>Notas</h3></div>
-                    <div className="spell-list-item"><h3>Variable</h3></div>
+                    <div className="spell-list-item"><h4>Nombre</h4></div>
+                    <div className="spell-list-item"><h4>Dificultad</h4></div>
+                    <div className="spell-list-item"><h4>Efecto</h4></div>
+                    <div className="spell-list-item"><h4>Notas</h4></div>
+                    <div className="spell-list-item"><h4>Variable</h4></div>
                     <div className="spell-list-item"></div>
                 </div>
                 {sheet.spells && sheet.spells.map((spell) => (

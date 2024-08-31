@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../../../App";
 import SheetService from "../../../services/SheetService";
+import { MdDelete } from "react-icons/md";
+import { FaEdit } from "react-icons/fa";
 
 export const EditSpellsComponent = ({ sheet, onChange }) => {
     const [availableSpells, setAvailableSpells] = useState([]);
@@ -25,8 +27,6 @@ export const EditSpellsComponent = ({ sheet, onChange }) => {
     };
 
     const handleAddSpell = () => {
-        console.log("Selected Spell ID:", selectedSpellId);
-        console.log("Available Spells:", availableSpells);
 
         if (selectedSpellId === null) {
             console.error("No spell selected.");
@@ -37,7 +37,6 @@ export const EditSpellsComponent = ({ sheet, onChange }) => {
         const spellIdNumber = Number(selectedSpellId);
         const selectedSpell = availableSpells.find(spell => spell.id === spellIdNumber);
 
-        console.log("Selected Spell:", selectedSpell);
 
         if (selectedSpell) {
             // Ensure the spell isn't already in the list
@@ -58,11 +57,11 @@ export const EditSpellsComponent = ({ sheet, onChange }) => {
         <div className="sheet-data-spells">
             <h2>Hechizos</h2>
             <div className="spell-list-group">
-                <div className="spell-list-item"><h3>Nombre</h3></div>
-                <div className="spell-list-item"><h3>Dificultad</h3></div>
-                <div className="spell-list-item"><h3>Efecto</h3></div>
-                <div className="spell-list-item"><h3>Notas</h3></div>
-                <div className="spell-list-item"><h3>Variable</h3></div>
+                <div className="spell-list-item"><h4>Nombre</h4></div>
+                <div className="spell-list-item"><h4>Dificultad</h4></div>
+                <div className="spell-list-item"><h4>Efecto</h4></div>
+                <div className="spell-list-item"><h4>Notas</h4></div>
+                <div className="spell-list-item"><h4>Variable</h4></div>
                 <div className="spell-list-item"></div>
             </div>
             {sheet.spells && sheet.spells.map((spell) => (
@@ -72,12 +71,12 @@ export const EditSpellsComponent = ({ sheet, onChange }) => {
                     <div className="spell-list-item">{spell.effect}</div>
                     <div className="spell-list-item">{spell.notes}</div>
                     <div className="spell-list-item">{spell.variable ? 'Sí' : 'No'}</div>
-                    <button onClick={() => handleRemoveSpell(spell.id)}>Eliminar</button>
+                    <button className="sheet-list-btn" onClick={() => handleRemoveSpell(spell.id)}><MdDelete className="btn-icon"/></button>
                 </div>
             ))}
 
-            <div className="add-spell">
-                <select
+            <div className="spell-add">
+                <select className="spell-select"
                     value={selectedSpellId || ""}
                     onChange={(e) => setSelectedSpellId(Number(e.target.value))} // Convert to number here
                 >
@@ -86,7 +85,7 @@ export const EditSpellsComponent = ({ sheet, onChange }) => {
                         <option key={spell.id} value={spell.id}>{spell.name}</option>
                     ))}
                 </select>
-                <button onClick={handleAddSpell}>Añadir Hechizo</button>
+                <button className="spell-btn" onClick={handleAddSpell}>Añadir Hechizo</button>
             </div>
         </div>
     );

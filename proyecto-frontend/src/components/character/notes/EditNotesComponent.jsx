@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaRegStickyNote } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
+import { FaEdit } from "react-icons/fa";
 
 export const EditNotesComponent = ({ sheet, onChange }) => {
     const [newNote, setNewNote] = useState(""); // For creating new notes
@@ -53,13 +55,12 @@ export const EditNotesComponent = ({ sheet, onChange }) => {
         <div className="sheet-data-notes">
             <h2>Notas</h2>
             <div className="add-note">
-                <input
-                    type="text"
+                <textArea
                     value={newNote}
                     onChange={(e) => setNewNote(e.target.value)}
                     placeholder="Añadir nueva nota"
                 />
-                <button onClick={handleAddNote}>Añadir Nota</button>
+                <button className="note-btn" onClick={handleAddNote}>Añadir Nota</button>
             </div>
             {localNotes.length > 0 ? (
                 <div className="notes-list">
@@ -73,16 +74,14 @@ export const EditNotesComponent = ({ sheet, onChange }) => {
                                         rows="4"
                                         cols="50"
                                     />
-                                    <button onClick={() => handleEditNote(index)}>Guardar Cambios</button>
-                                    <button onClick={handleCancelEdit}>Cancelar</button>
+                                    <button className="note-btn" onClick={() => handleEditNote(index)}>Guardar Cambios</button>
+                                    <button className="note-btn" onClick={handleCancelEdit}>Cancelar</button>
                                 </>
                             ) : (
                                 <>
                                     <p>{note}</p>
-                                    <button onClick={() => handleEditClick(index)}>
-                                        <FaRegStickyNote /> Editar Nota
-                                    </button>
-                                    <button onClick={() => handleDeleteNote(index)}>Eliminar</button>
+                                    <button className="sheet-list-btn" onClick={() => handleEditClick(index)}><FaEdit className="btn-icon"/></button>
+                                    <button className="sheet-list-btn" onClick={() => handleDeleteNote(index)}><MdDelete className="btn-icon"/></button>
                                 </>
                             )}
                         </div>

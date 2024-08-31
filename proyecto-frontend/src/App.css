@@ -1,5 +1,6 @@
 * {
-    font-family: 'Optima ';
+    font-family: 'Courier';
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 }
 
@@ -177,11 +178,17 @@ header {
     text-align: center;
     padding-bottom: 1vh;
 }
-
 .lateral-data img {
     width: 12vw;
 }
-
+.lateral-data input {
+    text-align: center;
+    width: 4vw;
+}
+.lateral-data h3 input {
+    
+    width: 10vw;
+}
 .lateral-data-points {
     display: inline-flex;
 }
@@ -275,7 +282,6 @@ header {
 
 }
 
-
 .spell-modal {
     position: fixed;
     top: 0;
@@ -325,12 +331,25 @@ header {
 
 
 /*---Welcome---*/
-.welcome-container {
-    background-color: #ffffe8;
-    height: 90vh;
-    padding: 2vh;
+.background{
+    background-color: #ffffe8; 
+    padding: 1vh;
 }
+.welcome-container {
+    background-color: #fff;
+    height: 88vh;
+    padding: 2vh;
+    width: 90%;
+    margin: auto;
 
+    border: 1px solid black;
+}
+.welcome-info{
+    margin-top: 3vh;
+}
+.welcome-info h2{
+    margin-bottom: 2vh;
+}
 .welcome-menu {
     width: 100%;
     display: flex;
@@ -351,6 +370,7 @@ header {
 }
 
 .welcome-btn {
+    margin-top: 3vh;
     width: 15vw;
     background-color: #113286;
     color: white;
@@ -372,7 +392,7 @@ header {
 .main-sheet-list {
     text-align: center;
     width: 100%;
-    height: 82vh;
+    height: 84vh;
     background-color: #ffffe8;
     border-radius: 10px;
     padding-top: 2vh;
@@ -384,21 +404,27 @@ header {
     margin: auto;
     background-color: white;
     min-width: fit-content;
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 10px;
 }
 
 .sheet-list-group-title {
     display: flex;
-    background-color: #f7ead0;
+    background-color: #234198;
     justify-content: space-evenly;
     font-weight: bolder;
     font-size: x-large;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+    color: #fff;
 }
 
 .sheet-list-group {
     display: flex;
-    justify-content: space-between;
+    font-weight: bold;
+    font-size: large;
+    justify-content: space-evenly;
 }
 
 .sheet-list-group:hover {
@@ -409,6 +435,7 @@ header {
     width: 30%;
     padding: 2vh;
     align-content: center;
+    
 }
 
 .sheet-list-btn {
@@ -512,6 +539,7 @@ nav {
 
 .data-stress {
     display: flex;
+    margin-bottom: 1vh;
 }
 
 .data-stress input,
@@ -519,10 +547,27 @@ label {
     width: 20%;
 }
 
-.data-stress input {
-    height: 20px;
+.data-stress input[type="checkbox"] {
+    appearance: none; 
+    width: 2vh;
+    height: 2vh;
+    margin: auto;
+    background-color: #fff; 
+    border: 2px solid #ddd; 
+
 }
 
+.data-stress input[type="checkbox"]:checked {
+    background-color: #455fbc; /* Color de fondo cuando está marcado */
+    border-color: #113286; /* Color del borde cuando está marcado */
+}
+.edit-consecuences{
+    margin-top: 1vh;
+    border: 1px solid black;
+    width: 95%;
+    padding: 1vh;
+    background-color: white;
+}
 .sheet-data-consecuences {
     margin-top: 1vh;
     border: 1px solid black;
@@ -530,11 +575,18 @@ label {
     padding: 1vh;
     background-color: white;
 }
-
+.sheet-data-consecuence h2 {
+    margin-top: 5vh;
+    border: 1px solid black;
+    width: 95%;
+    padding: 1vh;
+    background-color: white;
+}
 .data-consecuences {
-    display: inline-flex;
+    display: flex;
     width: 100%;
     margin-bottom: 1%;
+    background-color: white;
 }
 
 .data-consecuences label {
@@ -551,8 +603,9 @@ label {
     width: 2vw;
 }
 
-.data-consecuences input {
+.input-consequences {
     width: 60%;
+    margin: auto;
 }
 
 /*Estilos*/
@@ -618,18 +671,28 @@ label {
 .sheet-data-aspectos {
     margin-top: 1vh;
     border: 1px solid black;
-    width: 95%;
+    width: 90%;
     padding: 1vh;
     background-color: white;
 }
 
 .aspecto-box {
     margin-bottom: 2%;
+    width: 95%;
 }
 
 .aspecto {
     border: 1px solid black;
     min-height: 8vh;
+    width: 95%;
+}
+.aspectos {
+    border: 1px solid black;
+    min-height: 8vh;
+    width: 95%;
+}
+.aspectos input{
+    border: 0,5px;
 }
 
 /*Proezas*/
@@ -643,6 +706,7 @@ label {
 
 .proeza {
     border: 1px solid black;
+    width: 95%;
 }
 
 
@@ -655,8 +719,15 @@ label {
     background-color: white;
 }
 
-.data-wand {
+.edit-data-wand {
     margin-bottom: 2%;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+.edit-data-wand select{
+    width: 90%;
+    height: 3vh;
+    font-size: x-large;
 }
 
 .wand-info {
@@ -688,7 +759,7 @@ label {
     width: 100%;
     padding-left: 1vw ;
     text-align: center;
-    font-weight: bolder;
+    
 }
 
 .spell-list-group button {
@@ -707,6 +778,78 @@ label {
     align-content: center;
     margin-left: 2vw;
 }
+.spell-btn {
+    width: 30%;
+    background-color: #113286;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.5s;
+    margin: 1%;
+    text-transform: uppercase;
+}
+
+.spell-btn:hover {
+    color: white;
+    background-color: #234198;
+    border: none;
+}
+.spell-add{
+    text-transform: uppercase;
+}
+.spell-select{
+    width: 30%;
+    height: 3vh;
+    font-size: large;
+    
+}
+
+/*Notes*/
+.sheet-data-notes{
+    border: 1px solid black;
+    width: 90%;
+    margin: auto;
+    margin-top: 1vh;
+    padding: 1vh;
+    background-color: white;
+}
+.notes-list{
+    background-color: white;
+    display:  grid;
+    grid-template-columns: repeat(3, 1fr);
+
+}
+.note-item{
+    border: 1px solid black;
+    margin: 1%;
+    min-height: 8vh;
+    text-align: center;
+    padding: 1%;
+}
+.note-btn {
+    width: 30%;
+    background-color: #113286;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.5s;
+    margin: 1%;
+}
+
+.note-btn:hover {
+    color: white;
+    background-color: #234198;
+    border: none;
+}
+.add-note{
+    display: flex;
+    margin-bottom: 2vh;
+}
+.add-note textarea{
+    width: 75%;
+    margin: auto;
+}
+
 
 /* Media Query para pantallas pequeñas */
 

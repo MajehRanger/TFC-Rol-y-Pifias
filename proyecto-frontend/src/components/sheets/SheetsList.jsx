@@ -46,8 +46,8 @@ export const SheetsList = () => {
                                 <div className="sheet-list-item">{sheet.characterName}</div>
                                 <div className="sheet-list-item">{sheet.description}</div>
                                 <div className="sheet-list-item">
-                                    <button className="sheet-list-btn" onClick={() => handleSheet(sheet.id)}><FaEdit className="btn-icon"/></button>
-                                    <button className="sheet-list-btn" onClick={() => handleDelete(sheet.id)}><MdDelete className="btn-icon"/></button>
+                                    <button className="sheet-list-btn" onClick={() => handleSheet(sheet.id)}><FaEdit className="btn-icon" /></button>
+                                    <button className="sheet-list-btn" onClick={() => handleDelete(sheet.id)}><MdDelete className="btn-icon" /></button>
                                 </div>
                             </div>
                         ))}
