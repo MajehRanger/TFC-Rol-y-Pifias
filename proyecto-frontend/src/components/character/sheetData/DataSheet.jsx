@@ -7,12 +7,11 @@ export const DataSheetComponent = () => {
     const [sheet, setSheet] = useState({
         physicalStress: 0,
         mentalStress: 0,
-        aspectos: [], // Inicializa como un array vacío
-        proezas: [],  // Inicializa como un array vacío
-        wand: null,   // Inicializa como null
+        aspectos: [], 
+        proezas: [],  
+        wand: null,   
         concepto: "",
         problema: ""
-        // Otros campos que necesites
     });
     const { token } = useContext(AuthContext);
     const location = useLocation();
@@ -28,45 +27,22 @@ export const DataSheetComponent = () => {
             });
     }, [token, sheetId]);
 
-    const handleCheckFhys = (index) => {
-        setSheet((prevSheet) => ({
-            ...prevSheet,
-            physicalStress: index,
-        }));
-    };
-
-    const handleCheckMen = (index) => {
-        setSheet((prevSheet) => ({
-            ...prevSheet,
-            mentalStress: index,
-        }));
-    };
-
-    const handleSave = () => {
-        SheetService.updateSheet(token, sheetId, sheet)
-            .then(() => {
-                alert("Ficha actualizada y guardada");
-            })
-            .catch((error) => {
-                console.error('Error saving sheet:', error);
-            });
-    };
-
-    // Genera hasta 4 divs para aspectos
-    const generateAspectDivs = () => {
-        const aspectCount = (sheet.aspectos || []).length;
+    
+    // Genera hasta 4 divs para proezas
+    const generateProezaDivs = () => {
+        const proezaCount = (sheet.proezas || []).length;
         const maxDivs = 4;
         const divs = [];
 
         for (let i = 0; i < maxDivs; i++) {
-            if (i < aspectCount) {
+            if (i < proezaCount) {
                 divs.push(
-                    <div key={i}>{sheet.aspectos[i] || "Desconocido"}</div>
+                    <div key={i}>{sheet.proezas[i] || "Desconocido"}</div>
                 );
             } else {
                 divs.push(
-                    <div key={i} className="aspecto-empty"> {/* Añade una clase para estilizar divs vacíos si es necesario */}
-                        {i < aspectCount ? sheet.aspectos[i] || "Desconocido" : "Vacío"}
+                    <div key={i} className="proeza-empty">
+                        
                     </div>
                 );
             }
@@ -110,7 +86,7 @@ export const DataSheetComponent = () => {
                             <div className="data-consecuences" key={index}>
                                 <label htmlFor=""><span>{item.value}</span> {item.label}</label>
                                 <div>
-                                        {sheet[`consequence_${index}`] || ""}
+                                    {sheet[`consequence_${index}`] || ""}
                                 </div>
                             </div>
                         ))}
@@ -155,16 +131,13 @@ export const DataSheetComponent = () => {
                                 {(sheet.aspectos || []).map((aspecto, index) => (
                                     <div key={index}>{aspecto || "Desconocido"}</div>
                                 ))}
-
                             </div>
                         </div>
                     </div>
                     <div className="sheet-data-proezas">
                         <h2>Proezas</h2>
                         <div className="proeza">
-                        {(sheet.proezas || []).map((proeza, index) => (
-                            <div key={index}>{proeza || "Desconocido"}</div>
-                        ))}
+                            {generateProezaDivs()}
                         </div>
                     </div>
                 </div>
@@ -172,4 +145,3 @@ export const DataSheetComponent = () => {
         </>
     );
 };
-

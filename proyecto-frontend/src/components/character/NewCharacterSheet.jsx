@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../App";
 import SheetService from "../../services/SheetService";
 import { HeaderComponent } from "../common/HeaderComponent";
-import { DataSheetComponent } from "./sheetData/DataSheet";
+import { EditDataSheetComponent } from "./sheetData/EditDataSheetComponent";
 import { EditLateralSheetsMenu } from "../common/EditLateralSheetMenu";
 import { EditEstilosComponent } from "./estilos/EditEstilosComponent";
 import { EditSpellsComponent } from "./spells/EditSpellsComponent";
@@ -58,7 +58,7 @@ export const NewCharacterSheet = () => {
                         </button>
                         <button className="menu-btn" onClick={handleCancel}>Cancelar</button>
                     </nav>
-                    {activeComponent === 'data' && <DataSheetComponent sheet={sheet} onChange={handleChange} />}
+                    {activeComponent === 'data' && <EditDataSheetComponent sheet={sheet} onChange={handleChange} />}
                     {activeComponent === 'estilos' && <EditEstilosComponent sheet={sheet} onChange={handleChange} />}
                     {activeComponent === 'spells' && <EditSpellsComponent sheet={sheet} onChange={handleChange} />}
                     {activeComponent === 'notes' && <EditNotesComponent sheet={sheet} onChange={handleChange} />}

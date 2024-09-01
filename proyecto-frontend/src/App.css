@@ -281,7 +281,9 @@ header {
     align-self: center;
 
 }
-
+.dice-modal-content button{
+    text-transform: uppercase;
+}
 .spell-modal {
     position: fixed;
     top: 0;
@@ -309,6 +311,34 @@ header {
     top: 50%;
     left: 50%;
 } 
+.spell-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.spell-modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: auto;
+    min-width: 15vw;
+    overflow: auto; 
+    text-align: center;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: inline-block;
+} 
 
 .spell-result{
     display: flex;
@@ -317,15 +347,20 @@ header {
     align-items: center;
 
 }
-.spell-result h4{
-    width: 3vh;
-    height: 3vh;
-    font-size: xx-large;
-    font-weight: bold;
+.spell-modal-content h4{
+    margin-top: 1vh;
+    margin-bottom: 1vh;
 }
+.spell-modal-content button{
+    text-transform: uppercase;
+}
+
 .spell-roll{
     background-color: #7e90d4;
-    align-self: center;
+    justify-self: center;
+    width: fit-content;
+    padding: 1vh;
+    margin: auto;
 
 }
 
@@ -680,7 +715,11 @@ label {
     margin-bottom: 2%;
     width: 95%;
 }
-
+.aspecto-box textarea{
+    margin-bottom: 2%;
+    width: 100%;
+    min-height: 6vh;
+}
 .aspecto {
     border: 1px solid black;
     min-height: 8vh;
@@ -699,16 +738,24 @@ label {
 .sheet-data-proezas {
     margin-top: 1vh;
     border: 1px solid black;
+    width: 90%;
+    padding: 1vh;
+    background-color: white;
+}
+.edit-data-proezas {
+    margin-top: 1vh;
+    border: 1px solid black;
     width: 95%;
     padding: 1vh;
     background-color: white;
 }
-
 .proeza {
     border: 1px solid black;
-    width: 95%;
+    width: 90%;
 }
-
+.proeza-empty{
+    min-height: 2vh;
+}
 
 /*Wands*/
 .sheet-data-wand {

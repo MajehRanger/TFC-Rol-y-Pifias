@@ -22,7 +22,7 @@ function App() {
     localStorage.removeItem('token') // o userData.token si la respuesta envia mas cosas
     setToken(null);
   }
-
+  console.log(token);
   return (
 
     <AuthContext.Provider value={{ token: token, login: login, logout: logout }}>

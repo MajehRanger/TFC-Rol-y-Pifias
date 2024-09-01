@@ -74,9 +74,10 @@ export const SpellsComponent = () => {
                 <div className="spell-modal">
                     <div className="spell-modal-content">
                         <h3>Tirada de {spellName}</h3>
-                        <p><strong>Dificultad:</strong> {difficulty}</p>
-                        <p><strong>Tirada:</strong> {totalResult}</p>
-                        <button onClick={closeModal}>Cerrar</button>
+                        <h4>Dificultad: {difficulty}</h4>
+                        <h4>Tirada:</h4>
+                        <h4 className="spell-roll"> {totalResult}</h4>
+                        <button className="lateral-btn"  onClick={closeModal}>Cerrar</button>
                     </div>
                 </div>
             )}
