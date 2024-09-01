@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import SheetService from "../../../services/SheetService";
 
 export const NotesComponent = () => {
-    const [sheet, setSheet] = useState({ notes: [] }); // Inicializa con un objeto que contiene un array de notas
+    const [sheet, setSheet] = useState({ notes: [] });
     const { token } = useContext(AuthContext);
     const location = useLocation();
     const { sheetId } = location.state || {};

@@ -8,12 +8,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class WandWoodDTO {
-     private Long id;
+    private Long id;
 
     private String name;
 
     private String description;
-    
+
     private String bonus;
 
     private String notes;

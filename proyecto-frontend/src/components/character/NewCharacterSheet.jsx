@@ -13,7 +13,6 @@ export const NewCharacterSheet = () => {
     const [sheet, setSheet] = useState({
         notes: [],
         spells: [],
-        // Inicializa otros campos según sea necesario
     });
     const [activeComponent, setActiveComponent] = useState('data');
     const [isEditing, setIsEditing] = useState(true);

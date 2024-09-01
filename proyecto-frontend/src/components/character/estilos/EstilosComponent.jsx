@@ -37,7 +37,7 @@ export const EstilosComponent = () => {
 
     const handleDiceRoll = (styleValue) => {
         const result = rollFateDice();
-        setRollResult(result + styleValue);  
+        setRollResult(result + styleValue);
         setCurrentStyleValue(styleValue);
         setModalVisible(true);
     };

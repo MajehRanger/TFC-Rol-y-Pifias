@@ -2,11 +2,11 @@ import React, { createContext, useContext } from "react";
 
 const AuthContext = createContext();
 
-export const AuthProvider = ({children}) => {
-   
+export const AuthProvider = ({ children }) => {
+
     return (
-        <AuthContext.Provider value={{token: token, login: login, logout: logout}}>
-             {children}
+        <AuthContext.Provider value={{ token: token, login: login, logout: logout }}>
+            {children}
         </AuthContext.Provider>
     )
 };

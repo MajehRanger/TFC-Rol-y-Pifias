@@ -7,9 +7,9 @@ export const DataSheetComponent = () => {
     const [sheet, setSheet] = useState({
         physicalStress: 0,
         mentalStress: 0,
-        aspectos: [], 
-        proezas: [],  
-        wand: null,   
+        aspectos: [],
+        proezas: [],
+        wand: null,
         concepto: "",
         problema: ""
     });
@@ -27,7 +27,7 @@ export const DataSheetComponent = () => {
             });
     }, [token, sheetId]);
 
-    
+
     // Genera hasta 4 divs para proezas
     const generateProezaDivs = () => {
         const proezaCount = (sheet.proezas || []).length;
@@ -42,7 +42,7 @@ export const DataSheetComponent = () => {
             } else {
                 divs.push(
                     <div key={i} className="proeza-empty">
-                        
+
                     </div>
                 );
             }
@@ -54,7 +54,7 @@ export const DataSheetComponent = () => {
     return (
         <>
             <div className="sheet-data">
-                <div>
+                <div className="sheet-data-col">
                     <div className="sheet-data-stress">
                         <h2>Estrés</h2>
                         <div className="data-stress">
@@ -64,7 +64,7 @@ export const DataSheetComponent = () => {
                                     key={`phys-${index}`}
                                     type="checkbox"
                                     checked={sheet.physicalStress === index}
-                                    disabled // Deshabilita el checkbox
+                                    disabled
                                 />
                             ))}
                         </div>
@@ -75,7 +75,7 @@ export const DataSheetComponent = () => {
                                     key={`men-${index}`}
                                     type="checkbox"
                                     checked={sheet.mentalStress === index}
-                                    disabled // Deshabilita el checkbox
+                                    disabled
                                 />
                             ))}
                         </div>
@@ -114,7 +114,7 @@ export const DataSheetComponent = () => {
                         </div>
                     )}
                 </div>
-                <div>
+                <div className="sheet-data-col">
                     <div className="sheet-data-aspectos">
                         <h2>Aspectos</h2>
                         <div className="aspecto-box">

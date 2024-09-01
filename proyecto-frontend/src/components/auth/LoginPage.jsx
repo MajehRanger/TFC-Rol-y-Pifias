@@ -32,17 +32,16 @@ export const LoginPage = () => {
                 <form onSubmit={handleSubmit}>
                     <div className="login-form-group">
                         <label htmlFor="">Email:</label>
-                        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
+                        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                     </div>
                     <div className="login-form-group">
                         <label htmlFor="">Contraseña:</label>
-                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
+                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                     </div>
                     <div className="login-form-btns">
                         <div><button type="submit" className="login-form-btn">Entrar</button></div>
                         <Link to="/register" className="login-form-link"><button className="login-form-btn">Regístrate</button></Link>
 
-                        
                     </div>
 
                 </form>

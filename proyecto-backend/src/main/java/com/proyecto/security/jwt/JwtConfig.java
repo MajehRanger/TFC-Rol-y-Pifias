@@ -12,8 +12,8 @@ public class JwtConfig {
     private final UserDetailsServiceImpl userDetailsServiceImpl;
 
     @Bean
-    public JwtTokenFilter jwtTokenFilter(){
-        return new JwtTokenFilter(jwtService,  userDetailsServiceImpl);
+    public JwtTokenFilter jwtTokenFilter() {
+        return new JwtTokenFilter(jwtService, userDetailsServiceImpl);
     }
 
 }

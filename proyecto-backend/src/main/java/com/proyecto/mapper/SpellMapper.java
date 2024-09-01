@@ -17,5 +17,5 @@ public interface SpellMapper {
     List<SpellDTO> mapToDTOs(List<Spell> estilos);
 
     List<Spell> mapToEntities(List<SpellDTO> estilosDTOs);
-    
+
 }

@@ -26,22 +26,21 @@ import java.util.List;
 @RequestMapping("/register")
 public class RegisterController {
 
-    //private final PlayerMapper playerMapper;
+    // private final PlayerMapper playerMapper;
     private final PasswordEncoder passwordEncoder;
     private final PlayerRepository playerRepository;
 
+    @PostMapping({ "", "/" })
+    public ResponseEntity<String> register(@RequestBody @Valid RegisterDTO registerDTO, BindingResult bindingResult) {
 
-    @PostMapping({"", "/"})
-    public ResponseEntity<String> register(@RequestBody @Valid RegisterDTO registerDTO, BindingResult bindingResult){
-
-        if(bindingResult.hasErrors()){
-            List<String> errors = bindingResult.getFieldErrors().stream().map(e -> e.getField() + ": " + e.getDefaultMessage()).toList();
+        if (bindingResult.hasErrors()) {
+            List<String> errors = bindingResult.getFieldErrors().stream()
+                    .map(e -> e.getField() + ": " + e.getDefaultMessage()).toList();
             System.out.println(errors);
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error");
         }
 
-        try{
-
+        try {
 
             Player player = new Player();
             player.setPassword(passwordEncoder.encode(registerDTO.getPassword()));
@@ -52,9 +51,8 @@ public class RegisterController {
 
             // convertir el dto en un Player
 
-
             return ResponseEntity.ok("OK saver");
-        }catch (AuthenticationException e){
+        } catch (AuthenticationException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }

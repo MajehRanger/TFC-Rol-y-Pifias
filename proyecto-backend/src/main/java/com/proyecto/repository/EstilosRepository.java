@@ -6,6 +6,4 @@ import com.proyecto.model.Estilos;
 
 public interface EstilosRepository extends JpaRepository<Estilos, Long> {
 
-    
-    
 }

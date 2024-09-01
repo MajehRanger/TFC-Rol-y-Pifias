@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 import com.proyecto.dto.WandDTO;
 import com.proyecto.model.Wand;
 
-@Mapper(componentModel = "spring", uses = {WandCoreMapper.class, WandWoodMapper.class})
+@Mapper(componentModel = "spring", uses = { WandCoreMapper.class, WandWoodMapper.class })
 public interface WandMapper {
     WandDTO mapToDTO(Wand wand);
 

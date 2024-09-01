@@ -24,7 +24,7 @@ public class SpellController {
     @Autowired
     private SpellService spellService;
 
-     @GetMapping("/get/{id}")
+    @GetMapping("/get/{id}")
     public ResponseEntity<SpellDTO> getCharacterSheetById(@PathVariable long id) {
         SpellDTO spellDTO = spellService.getSpellById(id);
         return ResponseEntity.ok(spellDTO);
@@ -35,5 +35,5 @@ public class SpellController {
         List<SpellDTO> spellDTOs = spellService.getAllSpells();
         return ResponseEntity.ok(spellDTOs);
     }
-    
+
 }

@@ -10,7 +10,6 @@ export const EditSpellsComponent = ({ sheet, onChange }) => {
     const { token } = useContext(AuthContext);
 
     useEffect(() => {
-        // Fetch available spells from the API
         SheetService.getAllSpells(token)
             .then((response) => {
                 console.log("Available spells from API:", response);
@@ -33,18 +32,18 @@ export const EditSpellsComponent = ({ sheet, onChange }) => {
             return;
         }
 
-        // Convert selectedSpellId to a number if it's a string
+        // Convierte selectedSpellId a numero
         const spellIdNumber = Number(selectedSpellId);
         const selectedSpell = availableSpells.find(spell => spell.id === spellIdNumber);
 
 
         if (selectedSpell) {
-            // Ensure the spell isn't already in the list
+            // Asegura que el hechizo no este ya en la lista
             if (!sheet.spells.find(spell => spell.id === selectedSpell.id)) {
                 const updatedSpells = [...sheet.spells, selectedSpell];
-                
+
                 onChange('spells', updatedSpells);
-                setSelectedSpellId(null); // Reset the select input
+                setSelectedSpellId(null);
             } else {
                 alert("El hechizo ya está en la lista.");
             }
@@ -71,16 +70,16 @@ export const EditSpellsComponent = ({ sheet, onChange }) => {
                     <div className="spell-list-item">{spell.effect}</div>
                     <div className="spell-list-item">{spell.notes}</div>
                     <div className="spell-list-item">{spell.variable ? 'Sí' : 'No'}</div>
-                    <button className="sheet-list-btn" onClick={() => handleRemoveSpell(spell.id)}><MdDelete className="btn-icon"/></button>
+                    <button className="sheet-list-btn" onClick={() => handleRemoveSpell(spell.id)}><MdDelete className="btn-icon" /></button>
                 </div>
             ))}
 
             <div className="spell-add">
                 <select className="spell-select"
                     value={selectedSpellId || ""}
-                    onChange={(e) => setSelectedSpellId(Number(e.target.value))} // Convert to number here
+                    onChange={(e) => setSelectedSpellId(Number(e.target.value))}
                 >
-                    <option value="">Selecciona un hechizo</option>
+                    <option>Selecciona un hechizo</option>
                     {availableSpells.map(spell => (
                         <option key={spell.id} value={spell.id}>{spell.name}</option>
                     ))}

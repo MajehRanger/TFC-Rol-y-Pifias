@@ -7,7 +7,7 @@ import { FaDice } from "react-icons/fa";
 export const SpellsComponent = () => {
     const [sheet, setSheets] = useState([]);
     const [modalVisible, setModalVisible] = useState(false);
-    const [totalResult, setTotalResult] = useState(0); 
+    const [totalResult, setTotalResult] = useState(0);
     const [spellName, setSpellName] = useState("");
     const [difficulty, setDifficulty] = useState(0);
     const { token } = useContext(AuthContext);
@@ -28,13 +28,13 @@ export const SpellsComponent = () => {
         const outcomes = [1, -1, 0];
         const roll = [];
         let total = 0;
-        
+
         for (let i = 0; i < 4; i++) {
             const outcome = outcomes[Math.floor(Math.random() * outcomes.length)];
             roll.push(outcome);
             total += outcome;
         }
-        setTotalResult(total); 
+        setTotalResult(total);
         setSpellName(spellName);
         setDifficulty(difficulty);
         setModalVisible(true);
@@ -77,7 +77,7 @@ export const SpellsComponent = () => {
                         <h4>Dificultad: {difficulty}</h4>
                         <h4>Tirada:</h4>
                         <h4 className="spell-roll"> {totalResult}</h4>
-                        <button className="lateral-btn"  onClick={closeModal}>Cerrar</button>
+                        <button className="lateral-btn" onClick={closeModal}>Cerrar</button>
                     </div>
                 </div>
             )}

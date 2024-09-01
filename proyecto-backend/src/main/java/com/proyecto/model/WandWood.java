@@ -23,12 +23,11 @@ public class WandWood {
 
     @Column(name = "wood_desc")
     private String description;
-    
+
     @Column(name = "wood_bonus")
     private String bonus;
 
     @Column(name = "wood_notes")
     private String notes;
-
 
 }

@@ -29,6 +29,4 @@ public class Wand {
     @JoinColumn(name = "core_id", referencedColumnName = "id")
     private WandCore core;
 
-    
-
 }

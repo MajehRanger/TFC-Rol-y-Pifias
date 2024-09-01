@@ -16,17 +16,18 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-public class WandCoreServiceImpl implements WandCoreService{
+public class WandCoreServiceImpl implements WandCoreService {
 
     @Autowired
     private final WandCoreRepository wandCoreRepository;
 
     @Autowired
     private final WandCoreMapper wandCoreMapper;
-    
+
     @Override
     public WandCoreDTO getCoreById(Long id) {
-        WandCore wandCore = wandCoreRepository.findById(id).orElseThrow(() -> new RuntimeException("Character Sheet not found"));
+        WandCore wandCore = wandCoreRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Character Sheet not found"));
         return wandCoreMapper.mapToDTO(wandCore);
     }
 
@@ -34,8 +35,8 @@ public class WandCoreServiceImpl implements WandCoreService{
     public List<WandCoreDTO> getAllCores() {
         List<WandCore> wandCores = wandCoreRepository.findAll();
         return wandCores.stream()
-                     .map(wandCoreMapper::mapToDTO)
-                     .collect(Collectors.toList());
+                .map(wandCoreMapper::mapToDTO)
+                .collect(Collectors.toList());
     }
-    
+
 }

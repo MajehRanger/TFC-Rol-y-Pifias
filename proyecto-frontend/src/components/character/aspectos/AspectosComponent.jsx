@@ -33,13 +33,13 @@ export const AspectosComponent = () => {
             </div>
             <div className="aspecto-box">
                 <div className="aspecto">
-                {sheet.aspectos ? (
-                sheet.aspectos.map( (aspecto) => (
-                    <div>{aspecto}</div>
-                ))):(<div>Vacio</div>)}
+                    {sheet.aspectos ? (
+                        sheet.aspectos.map((aspecto) => (
+                            <div>{aspecto}</div>
+                        ))) : (<div>Vacio</div>)}
                 </div>
             </div>
-            
+
         </div>
     )
 

@@ -9,7 +9,7 @@ import com.proyecto.model.WandWood;
 
 @Mapper(componentModel = "spring")
 public interface WandWoodMapper {
-    
+
     WandWoodDTO mapToDTO(WandWood wandWood);
 
     WandWood mapToEntity(WandWoodDTO wandWoodDTO);

@@ -27,7 +27,7 @@ export const EditEstilosComponent = ({ onChange }) => {
         const newValue = e.target.value;
         setEditedValues(prevValues => {
             const updatedValues = { ...prevValues, [key]: newValue };
-            // Call onChange to update the sheet in the parent component
+            // LLama onChange para actualizar la sheet del componente Padre
             if (onChange) {
                 onChange('estilos', updatedValues);
             }

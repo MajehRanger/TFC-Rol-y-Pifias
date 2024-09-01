@@ -16,16 +16,17 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-public class WandWoodServiceImpl implements WandWoodService{
+public class WandWoodServiceImpl implements WandWoodService {
     @Autowired
     private final WandWoodRepository wandWoodRepository;
 
     @Autowired
     private final WandWoodMapper wandWoodMapper;
-    
+
     @Override
     public WandWoodDTO getWoodById(Long id) {
-        WandWood wandWood = wandWoodRepository.findById(id).orElseThrow(() -> new RuntimeException("Character Sheet not found"));
+        WandWood wandWood = wandWoodRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Character Sheet not found"));
         return wandWoodMapper.mapToDTO(wandWood);
     }
 
@@ -33,8 +34,8 @@ public class WandWoodServiceImpl implements WandWoodService{
     public List<WandWoodDTO> getAllWoods() {
         List<WandWood> wandWoods = wandWoodRepository.findAll();
         return wandWoods.stream()
-                     .map(wandWoodMapper::mapToDTO)
-                     .collect(Collectors.toList());
+                .map(wandWoodMapper::mapToDTO)
+                .collect(Collectors.toList());
     }
-    
+
 }

@@ -16,14 +16,14 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-public class SpellServiceImpl implements SpellService{
+public class SpellServiceImpl implements SpellService {
 
     @Autowired
     private final SpellRepository spellRepository;
 
     @Autowired
     private final SpellMapper spellMapper;
-    
+
     @Override
     public SpellDTO getSpellById(Long id) {
         Spell spell = spellRepository.findById(id).orElseThrow(() -> new RuntimeException("Character Sheet not found"));
@@ -34,8 +34,8 @@ public class SpellServiceImpl implements SpellService{
     public List<SpellDTO> getAllSpells() {
         List<Spell> spells = spellRepository.findAll();
         return spells.stream()
-                     .map(spellMapper::mapToDTO)
-                     .collect(Collectors.toList());
+                .map(spellMapper::mapToDTO)
+                .collect(Collectors.toList());
     }
-    
+
 }

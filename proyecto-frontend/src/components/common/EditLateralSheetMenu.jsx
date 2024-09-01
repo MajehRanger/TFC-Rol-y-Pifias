@@ -53,7 +53,7 @@ export const EditLateralSheetsMenu = ({ onMenuItemClick, sheet, onChange }) => {
     return (
         <div className="lateral-menu-container">
             <div className="lateral-data">
-            <img src="https://cdn.icon-icons.com/icons2/2717/PNG/512/user_square_icon_173488.png" alt="" />
+                <img src="https://cdn.icon-icons.com/icons2/2717/PNG/512/user_square_icon_173488.png" alt="" />
                 <h3>
                     <input
                         type="text"

@@ -30,7 +30,7 @@ public class Spell {
 
     @Column(name = "spell_notes")
     private String notes;
-    
+
     @Column(name = "spell_variable")
     private Boolean variable;
 }

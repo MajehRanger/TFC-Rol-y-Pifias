@@ -45,7 +45,7 @@ public class CharacterSheet {
     private Integer px;
     @Column(name = "character_desc")
     private String description;
-    
+
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "estilos_id", referencedColumnName = "id")
     private Estilos estilos;
@@ -55,11 +55,7 @@ public class CharacterSheet {
     private Wand wand;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-        name = "character_spells_list",
-        joinColumns = @JoinColumn(name = "charactersheet_id"),
-        inverseJoinColumns = @JoinColumn(name = "spell_id")
-    )
+    @JoinTable(name = "character_spells_list", joinColumns = @JoinColumn(name = "charactersheet_id"), inverseJoinColumns = @JoinColumn(name = "spell_id"))
     @Column(name = "character_spells")
     private List<Spell> spells;
 
@@ -74,7 +70,7 @@ public class CharacterSheet {
 
     @Column(name = "character_proezas")
     private List<String> proezas;
- 
+
     @Column(name = "character_notes")
     private List<String> notes;
 

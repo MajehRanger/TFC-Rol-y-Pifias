@@ -17,7 +17,7 @@ import com.proyecto.service.WandWoodService;
 @RestController
 @RequestMapping("/wood")
 public class WandWoodController {
-    
+
     @Autowired
     private WandWoodService wandWoodService;
 

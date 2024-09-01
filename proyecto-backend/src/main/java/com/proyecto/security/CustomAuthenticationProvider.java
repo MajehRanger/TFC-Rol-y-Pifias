@@ -24,13 +24,13 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         String email = authentication.getName();
         String password = authentication.getCredentials().toString();
         UserDetails userDetails = userDetailsService.loadUserByUsername(email);
-        if (userDetails == null){
+        if (userDetails == null) {
             throw new UsernameNotFoundException("user not found");
         }
-        if (userDetails.getPassword() == null || !passwordEncoder.matches(password, userDetails.getPassword())){
+        if (userDetails.getPassword() == null || !passwordEncoder.matches(password, userDetails.getPassword())) {
             throw new BadCredentialsException("Invalid user or password");
         }
-        return new UsernamePasswordAuthenticationToken(userDetails,password,userDetails.getAuthorities());
+        return new UsernamePasswordAuthenticationToken(userDetails, password, userDetails.getAuthorities());
     }
 
     @Override
@@ -38,4 +38,3 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         return UsernamePasswordAuthenticationToken.class.isAssignableFrom(authentication);
     }
 }
-

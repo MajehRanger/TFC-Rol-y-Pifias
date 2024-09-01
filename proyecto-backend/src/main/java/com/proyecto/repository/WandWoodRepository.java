@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.proyecto.model.WandWood;
 
 @Repository
-public interface WandWoodRepository extends JpaRepository<WandWood, Long>{
-
+public interface WandWoodRepository extends JpaRepository<WandWood, Long> {
 
 }

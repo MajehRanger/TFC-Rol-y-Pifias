@@ -7,20 +7,20 @@ import com.proyecto.model.Player;
 import com.proyecto.security.UserDetailsImpl;
 
 public class SecurityUtil {
-    
-    public static Long getCurrentPlayerId() {
-    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-    if (authentication == null || !(authentication.getPrincipal() instanceof UserDetailsImpl principal)) {
-        throw new IllegalStateException("User not authenticated or principal type not supported.");
-    }
-    return principal.getPlayer().getId();
-}
 
-public static Player getCurrentPlayer() {
-    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-    if (authentication == null || !(authentication.getPrincipal() instanceof UserDetailsImpl principal)) {
-        throw new IllegalStateException("User not authenticated or principal type not supported.");
+    public static Long getCurrentPlayerId() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || !(authentication.getPrincipal() instanceof UserDetailsImpl principal)) {
+            throw new IllegalStateException("User not authenticated or principal type not supported.");
+        }
+        return principal.getPlayer().getId();
     }
-    return principal.getPlayer();
+
+    public static Player getCurrentPlayer() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || !(authentication.getPrincipal() instanceof UserDetailsImpl principal)) {
+            throw new IllegalStateException("User not authenticated or principal type not supported.");
+        }
+        return principal.getPlayer();
     }
 }

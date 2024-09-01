@@ -8,5 +8,5 @@ public interface WandCoreService {
     WandCoreDTO getCoreById(Long id);
 
     List<WandCoreDTO> getAllCores();
-    
+
 }

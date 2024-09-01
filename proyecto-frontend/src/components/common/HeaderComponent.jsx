@@ -7,7 +7,7 @@ export const HeaderComponent = () => {
   const { token, logout } = useContext(AuthContext);
 
   const handleLogout = () => {
-      logout();
+    logout();
   };
 
   return (
@@ -18,7 +18,7 @@ export const HeaderComponent = () => {
       </Link>
       <div className="header-right">
         <Link className="header-link" to="https://lauraguerrero.itch.io/secretos-del-mundo-magico"><button className="header-btn">Manuales</button></Link>
-       {/* {token != null && (
+        {/* {token != null && (
           <Link className="header-link" to="/profile"><button className="header-btn">Perfil</button></Link>
         )}*/}
         {token != null && (

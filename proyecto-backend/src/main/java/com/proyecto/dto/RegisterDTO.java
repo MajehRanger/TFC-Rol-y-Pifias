@@ -18,6 +18,6 @@ public class RegisterDTO {
     private String email;
 
     @NotBlank
-    @Size(min=8, max = 16, message = "error de tamaño")
+    @Size(min = 8, max = 16, message = "error de tamaño")
     private String password;
 }

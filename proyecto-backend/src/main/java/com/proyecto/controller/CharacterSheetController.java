@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 @AllArgsConstructor
 @RequestMapping("/sheets")
 public class CharacterSheetController {
-    
+
     private final CharacterSheetService characterSheetService;
     private final CharacterSheetMapper characterSheetMapper;
 

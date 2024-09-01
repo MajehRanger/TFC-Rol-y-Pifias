@@ -20,7 +20,6 @@ export const RegistrationPage = () => {
         e.preventDefault();
         try {
             //Llama al metodo de PlayerService
-
             const token = localStorage.getItem('token');
             await PlayerService.register(formData, token);
 

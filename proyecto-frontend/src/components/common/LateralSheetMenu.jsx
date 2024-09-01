@@ -78,7 +78,7 @@ export const LateralSheetsMenu = ({ onMenuItemClick }) => {
                 </div>
             </div>
             <div className="lateral-menu-down">
-                
+
                 <Link className="lateral-link" to="/sheets" onClick={() => handleButtonClick('sheets')}>
                     <button className={`lateral-btn ${activeButton.sheets ? 'active' : ''}`}><FaListAlt /> Lista Fichas</button>
                 </Link>

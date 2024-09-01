@@ -24,22 +24,22 @@ import lombok.ToString;
 @Table(name = "players")
 public class Player {
     @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
     @Column(name = "player_name")
     private String name;
 
-    @Column(name = "player_email", nullable = false, unique = true )
+    @Column(name = "player_email", nullable = false, unique = true)
     private String email;
 
     @Column(name = "player_password", nullable = false)
     private String password;
 
-   @OneToMany(mappedBy = "player", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-   @ToString.Exclude
-   @JsonBackReference
-   private List<CharacterSheet> characterSheets;
-    
+    @OneToMany(mappedBy = "player", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    @ToString.Exclude
+    @JsonBackReference
+    private List<CharacterSheet> characterSheets;
+
 }

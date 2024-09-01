@@ -26,9 +26,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 @AllArgsConstructor
 @RequestMapping("/api/players")
 public class PlayerController {
-    
+
     private final PlayerService playerService;
-    //private final UserDetailsServiceImpl userDetailsService;
+    // private final UserDetailsServiceImpl userDetailsService;
 
     @GetMapping("/get/{id}")
     public ResponseEntity<PlayerDTO> getPlayerById(@PathVariable String id) {
@@ -37,27 +37,29 @@ public class PlayerController {
         PlayerDTO playerDTO = playerService.getPlayerById(idLong);
         return ResponseEntity.ok(playerDTO);
     }
-/*
-    @GetMapping("/getall")
-    public ResponseEntity<List<PlayerDTO>> getAllPlayers() {
-        List<PlayerDTO> players = playerService.getAllPlayers();
-        return ResponseEntity.ok(players);
-
-    }
-
-    @PostMapping("/add")
-    public ResponseEntity<Void> createPlayer(@RequestBody PlayerDTO playerDTO) {
-        playerService.createPlayer(playerDTO);
-        return ResponseEntity.noContent().build();
-    }
-         @GetMapping("/adminuser/get-profile")
-    public ResponseEntity<PlayerDTO> getMyProfile(){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String email = authentication.getEmail();
-        PlayerDTO response = userDetailsService.loadUserByUsername(email);
-        return  ResponseEntity.status(response.getStatusCode()).body(response);
-    }*/
-    
+    /*
+     * @GetMapping("/getall")
+     * public ResponseEntity<List<PlayerDTO>> getAllPlayers() {
+     * List<PlayerDTO> players = playerService.getAllPlayers();
+     * return ResponseEntity.ok(players);
+     * 
+     * }
+     * 
+     * @PostMapping("/add")
+     * public ResponseEntity<Void> createPlayer(@RequestBody PlayerDTO playerDTO) {
+     * playerService.createPlayer(playerDTO);
+     * return ResponseEntity.noContent().build();
+     * }
+     * 
+     * @GetMapping("/adminuser/get-profile")
+     * public ResponseEntity<PlayerDTO> getMyProfile(){
+     * Authentication authentication =
+     * SecurityContextHolder.getContext().getAuthentication();
+     * String email = authentication.getEmail();
+     * PlayerDTO response = userDetailsService.loadUserByUsername(email);
+     * return ResponseEntity.status(response.getStatusCode()).body(response);
+     * }
+     */
 
     @PutMapping("/update/{id}")
     public ResponseEntity<Void> updatePlayer(@PathVariable long id, @RequestBody PlayerDTO playerDTO) {

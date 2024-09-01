@@ -1,6 +1,5 @@
 package com.proyecto.dto;
 
-
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -29,5 +28,5 @@ public class CharacterSheetDTO {
     private Integer physicalStress;
     private Integer mentalStress;
     private List<String> consequences;
-    
+
 }

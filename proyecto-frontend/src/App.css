@@ -679,6 +679,10 @@ label {
     font-weight: bolder;
     align-content: center;
 }
+.estilo-value input[type=number]{
+    width: 6vw;
+    text-align: center;
+}
 
 .estilo button {
     width: fit-content;
@@ -902,7 +906,49 @@ label {
 
 /*common*/
 @media only screen and (max-width: 900px) {
-    header .site-name {
+    .header-name {
         display: none;
+    }
+
+    .sheet-data {
+        width: 100%;
+        margin: auto;
+        display: inline-block;
+        margin-left: 1vw;
+    }
+    .sheet-data-col{
+        width: 100%;
+    }
+    .sheet-data-aspectos {
+        width: 95%;
+    }
+    .sheet-data-proezas {
+        width: 95%;
+    }
+    .data-estilos{
+        display: inline-block;
+        flex-wrap: wrap;
+
+        width: 90%;
+        margin: auto;
+    }
+    .estilo {
+        display: flex;
+        flex-direction:column;
+        width: 100%;
+
+    }
+    .estilo-name{
+        font-size: small;
+        font-weight: lighter;
+    }
+    .spell-list-group{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-items: center;
+    }
+    .spell-list-item{  
+        padding-bottom: 2vh;
+        margin: auto;
     }
 }

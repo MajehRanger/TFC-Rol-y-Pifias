@@ -16,7 +16,7 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-public class WandServiceImpl implements WandService{
+public class WandServiceImpl implements WandService {
 
     @Autowired
     private final WandRepository wandRepository;
@@ -34,8 +34,8 @@ public class WandServiceImpl implements WandService{
     public List<WandDTO> getWands() {
         List<Wand> wands = wandRepository.findAll();
         return wands.stream()
-                     .map(wandMapper::mapToDTO)
-                     .collect(Collectors.toList());
+                .map(wandMapper::mapToDTO)
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -56,5 +56,5 @@ public class WandServiceImpl implements WandService{
     public void deleteWand(Long id) {
         wandRepository.deleteById(id);
     }
-    
+
 }

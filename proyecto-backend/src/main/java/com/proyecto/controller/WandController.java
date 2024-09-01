@@ -42,6 +42,7 @@ public class WandController {
         wandService.createWand(wandDTO);
         return ResponseEntity.noContent().build();
     }
+
     @PutMapping("/update/{id}")
     public ResponseEntity<Void> updatePlayer(@PathVariable long id, @RequestBody WandDTO wandDTO) {
         wandService.updateWand(id, wandDTO);

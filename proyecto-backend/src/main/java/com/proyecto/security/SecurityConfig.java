@@ -26,26 +26,28 @@ public class SecurityConfig {
 
     @Bean
     public AuthenticationManager authManager(HttpSecurity http) throws Exception {
-        AuthenticationManagerBuilder authenticationManagerBuilder = http.getSharedObject(AuthenticationManagerBuilder.class);
+        AuthenticationManagerBuilder authenticationManagerBuilder = http
+                .getSharedObject(AuthenticationManagerBuilder.class);
         authenticationManagerBuilder.authenticationProvider(customAuthenticationProvider);
         return authenticationManagerBuilder.build();
     }
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http, JwtTokenFilter jwtTokenFilter) throws Exception {
-        //anotar urls que no estan protegidas
+        // anotar urls que no estan protegidas
 
-            return http.csrf(csrf -> csrf.disable())
-                    .exceptionHandling(exHandling -> {
-                        exHandling.authenticationEntryPoint((req, res, ex)-> {
-                            res.sendError(HttpServletResponse.SC_UNAUTHORIZED, ex.getMessage());
-                        });
-                    })
-                    .authorizeHttpRequests((authorize) -> authorize
-                .requestMatchers(AntPathRequestMatcher.antMatcher("/login")).permitAll()
-                .requestMatchers(AntPathRequestMatcher.antMatcher("/register")).permitAll()
-                .anyRequest().authenticated()
-             ).addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class)
-                    .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                    .build();
+        return http.csrf(csrf -> csrf.disable())
+                .exceptionHandling(exHandling -> {
+                    exHandling.authenticationEntryPoint((req, res, ex) -> {
+                        res.sendError(HttpServletResponse.SC_UNAUTHORIZED, ex.getMessage());
+                    });
+                })
+                .authorizeHttpRequests((authorize) -> authorize
+                        .requestMatchers(AntPathRequestMatcher.antMatcher("/login")).permitAll()
+                        .requestMatchers(AntPathRequestMatcher.antMatcher("/register")).permitAll()
+                        .anyRequest().authenticated())
+                .addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class)
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .build();
     }
 }

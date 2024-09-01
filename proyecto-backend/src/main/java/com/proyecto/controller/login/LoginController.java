@@ -20,14 +20,15 @@ public class LoginController {
     private final AuthenticationManager authenticationManager;
     private final JwtService jwtService;
 
-    @PostMapping({"", "/"})
-    public ResponseEntity<String> login(@RequestBody LoginDTO loginDTO){
-        try{
-            Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginDTO.getEmail(), loginDTO.getPassword()));
+    @PostMapping({ "", "/" })
+    public ResponseEntity<String> login(@RequestBody LoginDTO loginDTO) {
+        try {
+            Authentication authentication = authenticationManager
+                    .authenticate(new UsernamePasswordAuthenticationToken(loginDTO.getEmail(), loginDTO.getPassword()));
             UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
             String token = jwtService.createToken(userDetails.getEmail());
             return ResponseEntity.ok(token);
-        }catch (AuthenticationException e){
+        } catch (AuthenticationException e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
         }
     }

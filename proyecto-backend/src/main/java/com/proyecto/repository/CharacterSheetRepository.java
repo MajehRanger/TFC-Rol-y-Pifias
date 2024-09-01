@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.proyecto.model.CharacterSheet;
 
 @Repository
-public interface CharacterSheetRepository extends JpaRepository<CharacterSheet, Long>{
-    
+public interface CharacterSheetRepository extends JpaRepository<CharacterSheet, Long> {
+
 }

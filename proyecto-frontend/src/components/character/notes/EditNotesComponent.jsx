@@ -4,12 +4,12 @@ import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 
 export const EditNotesComponent = ({ sheet, onChange }) => {
-    const [newNote, setNewNote] = useState(""); // For creating new notes
-    const [editingNoteIndex, setEditingNoteIndex] = useState(null); // Index of the note being edited
-    const [noteContent, setNoteContent] = useState(""); // Content of the note being edited
-    const [localNotes, setLocalNotes] = useState(sheet.notes || []); // Local state for notes
+    const [newNote, setNewNote] = useState("");
+    const [editingNoteIndex, setEditingNoteIndex] = useState(null);
+    const [noteContent, setNoteContent] = useState("");
+    const [localNotes, setLocalNotes] = useState(sheet.notes || []); 
 
-    // Effect to sync local notes with sheet.notes when sheet changes
+    // Effect para sincronizar las notas locales con sheet.notes cuando cambia sheet
     useEffect(() => {
         setLocalNotes(sheet.notes || []);
     }, [sheet.notes]);
@@ -19,7 +19,7 @@ export const EditNotesComponent = ({ sheet, onChange }) => {
             const updatedNotes = [...localNotes, newNote.trim()];
             setLocalNotes(updatedNotes);
             onChange('notes', updatedNotes);
-            setNewNote(""); // Reset the input field
+            setNewNote("");
         }
     };
 
@@ -30,8 +30,8 @@ export const EditNotesComponent = ({ sheet, onChange }) => {
             );
             setLocalNotes(updatedNotes);
             onChange('notes', updatedNotes);
-            setEditingNoteIndex(null); // Exit editing mode
-            setNoteContent(""); // Clear note content
+            setEditingNoteIndex(null); //Sale del modo de edición
+            setNoteContent(""); 
         }
     };
 

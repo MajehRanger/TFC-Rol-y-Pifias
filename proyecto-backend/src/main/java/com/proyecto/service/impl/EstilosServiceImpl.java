@@ -30,8 +30,8 @@ public class EstilosServiceImpl implements EstilosService {
     public List<EstilosDTO> getAllEstilos() {
         List<Estilos> estilosList = estilosRepository.findAll();
         return estilosList.stream()
-                          .map(estilosMapper::mapToDTO)
-                          .collect(Collectors.toList());
+                .map(estilosMapper::mapToDTO)
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -42,7 +42,8 @@ public class EstilosServiceImpl implements EstilosService {
 
     @Override
     public void updateEstilos(long id, EstilosDTO estilosDTO) {
-        Estilos existingEstilos = estilosRepository.findById(id).orElseThrow(() -> new RuntimeException("Estilos not found"));
+        Estilos existingEstilos = estilosRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Estilos not found"));
         Estilos updatedEstilos = estilosMapper.mapToEntity(estilosDTO);
         updatedEstilos.setId(existingEstilos.getId());
         estilosRepository.save(updatedEstilos);

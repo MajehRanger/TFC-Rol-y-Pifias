@@ -16,7 +16,7 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-public class CharacterSheetServiceImpl implements CharacterSheetService{
+public class CharacterSheetServiceImpl implements CharacterSheetService {
 
     @Autowired
     private CharacterSheetRepository characterSheetRepository;
@@ -26,7 +26,8 @@ public class CharacterSheetServiceImpl implements CharacterSheetService{
 
     @Override
     public CharacterSheetDTO getCharacterSheetById(Long id) {
-        CharacterSheet sheet = characterSheetRepository.findById(id).orElseThrow(() -> new RuntimeException("Character Sheet not found"));
+        CharacterSheet sheet = characterSheetRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Character Sheet not found"));
         return characterSheetMapper.mapToSheetDTO(sheet);
     }
 
@@ -34,8 +35,8 @@ public class CharacterSheetServiceImpl implements CharacterSheetService{
     public List<CharacterSheetDTO> getAllCharacterSheets() {
         List<CharacterSheet> sheets = characterSheetRepository.findAll();
         return sheets.stream()
-                     .map(characterSheetMapper::mapToSheetDTO)
-                     .collect(Collectors.toList());
+                .map(characterSheetMapper::mapToSheetDTO)
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -46,7 +47,8 @@ public class CharacterSheetServiceImpl implements CharacterSheetService{
 
     @Override
     public void updateCharacterSheet(Long id, CharacterSheetDTO sheetDTO) {
-        CharacterSheet existingSheet = characterSheetRepository.findById(id).orElseThrow(() -> new RuntimeException("Character Sheet not found"));
+        CharacterSheet existingSheet = characterSheetRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Character Sheet not found"));
         CharacterSheet updatedSheet = characterSheetMapper.mapToSheet(sheetDTO);
         updatedSheet.setId(existingSheet.getId());
         characterSheetRepository.save(updatedSheet);
@@ -57,52 +59,4 @@ public class CharacterSheetServiceImpl implements CharacterSheetService{
         characterSheetRepository.deleteById(id);
     }
 
-    /*
-     
-
-    @Override
-    public CharacterSheetDTO createSheet(CharacterSheetDTO characterSheetDTO){
-        CharacterSheet sheet = CharacterSheetMapper.mapToSheet(characterSheetDTO);
-        CharacterSheet savedSheet = characterSheetRepository.save(sheet);
-        return CharacterSheetMapper.mapToSheetDTO(savedSheet);
-    }
-
-    @Override
-    public CharacterSheetDTO getSheetById(Long sheetId){
-        CharacterSheet characterSheet = characterSheetRepository.findById(sheetId)
-            .orElseThrow(() -> 
-            new ResourceNotFoundException("No existe una ficha con el id: " + sheetId));
-
-        return CharacterSheetMapper.mapToSheetDTO(characterSheet);
-    }
-
-    @Override
-    public List<CharacterSheetDTO> getAllSheets(){
-            List<CharacterSheet> characterSheets = characterSheetRepository.findAll();
-        return characterSheets.stream().map((characterSheet) -> CharacterSheetMapper.mapToSheetDTO(characterSheet))
-        .collect(Collectors.toList());
-    }
-
-    @Override
-    public CharacterSheetDTO updateSheet(Long sheetId, CharacterSheetDTO updatedSheet){
-        CharacterSheet characterSheet = characterSheetRepository.findById(sheetId).orElseThrow(() -> 
-        new ResourceNotFoundException("No existe una ficha con el id: " + sheetId));
-        
-        characterSheet.setCharacterName(updatedSheet.getCharacterName());
-        characterSheet.setPd(updatedSheet.getPd());
-        characterSheet.setPx(updatedSheet.getPx());
-        characterSheet.setNotes(updatedSheet.getNotes());
-
-        CharacterSheet characterSheetUpdatedObj = characterSheetRepository.save(characterSheet);
-
-        return CharacterSheetMapper.mapToSheetDTO(characterSheetUpdatedObj);
-    }
-
-    public void deleteSheet(Long sheetId){
-        characterSheetRepository.findById(sheetId).orElseThrow(() -> 
-        new ResourceNotFoundException("No existe una ficha con el id: " + sheetId));
-
-        characterSheetRepository.deleteById(sheetId);
-    }
-         */
 }
